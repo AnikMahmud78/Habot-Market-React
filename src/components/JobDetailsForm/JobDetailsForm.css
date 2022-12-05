@@ -1,0 +1,306 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter&family=Lexend+Deca&family=Manrope&family=Markazi+Text&family=Mulish&family=Noto+Sans&display=swap");
+
+.jobDetailsHeader h1 {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 45px;
+  line-height: 72px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  color: #2e2b2b;
+}
+
+.jobDetailsHeader h2 {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 21px;
+  line-height: 72px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  color: #8b8b8b;
+}
+
+.jobDetailsContainer {
+  width: auto;
+  height: auto;
+  border: 1px solid #d3d3d3;
+  border-radius: 15px;
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-top: 40px;
+}
+
+.jobPostHeadline h1 {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 72px;
+  display: flex;
+  align-items: center;
+  color: #000000;
+}
+
+.jobPostHeadline h1 svg {
+  margin-left: 6px;
+  width: 20px;
+  height: 20px;
+}
+
+.jobDetailsBox {
+  padding: 50px;
+}
+
+.jobDetailsProgress {
+  height: 100px;
+}
+
+.jobPostHeadlineInput {
+  width: 100%;
+  height: 70px;
+  border: 1px solid #b1b0b0;
+  border-radius: 5px;
+  background: none;
+  padding-left: 10px;
+  font-size: 18px;
+}
+
+.jobPostHeadlineInput:focus-visible {
+  outline-color: #937dc2;
+  outline-style: auto;
+  outline-width: 1px;
+  border: 1px solid #937dc2 !important;
+}
+
+.jobPostHeadlineInput:focus {
+  padding-left: 10px;
+  font-size: 19px;
+  background: white;
+  border: 1px solid #937dc2 !important;
+}
+
+.jobPostHeadline ul li {
+  list-style: disc;
+}
+
+.jobPostHeadline ul {
+  display: flex;
+  flex-direction: column;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 40px;
+}
+
+.jobDetailsInputs input {
+  border-bottom: 1px solid #737b7d;
+  background: none;
+  width: 80%;
+  margin: 50px 0px 40px 0px;
+  padding: 0px 0px 10px 10px;
+  font-size: 17px;
+}
+
+.jobDetailsInputs input:focus-visible {
+  outline-color: white;
+  outline-style: unset;
+  outline-width: 1px;
+  border-bottom: 3px solid #937dc2 !important;
+  border-top: none;
+  transition: 0.3s;
+  padding: 0px 0px 10px 15px;
+  font-size: 15px;
+}
+
+.jobDetailsInputs {
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+.jobCategoryDrop {
+  border: none !important;
+  border-bottom: 1px solid #b1b0b0 !important;
+  padding: 35px 0px 0px 10px !important;
+  height: 87px !important;
+  width: 80% !important;
+  border-radius: 0px !important;
+  background-position: 100% 75% !important;
+}
+
+.jobCategoryDrop:focus-visible {
+  outline-color: white;
+  border-bottom: 1px solid #937dc2 !important;
+}
+
+.jobCategoryDrop:focus {
+  border-color: white;
+  outline: 0 !important;
+  box-shadow: 0 0 0 0.25rem rgb(255, 255, 255) !important;
+}
+
+.error {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 160%;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.5px;
+  color: #d50d0d;
+}
+
+.errorHidden {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .jobDetailsHeader h1 {
+    font-size: 40px;
+    line-height: 50px;
+  }
+
+  .jobDetailsHeader h2 {
+    font-size: 20px;
+    line-height: 50px;
+  }
+
+  .jobPostHeadline h1 {
+    font-size: 18px;
+    line-height: 72px;
+  }
+
+  .jobDetailsBox {
+    padding: 30px;
+  }
+
+  .jobPostHeadline h1 svg {
+    margin-left: 5px;
+    width: 18px;
+    height: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .jobDetailsHeader h1 {
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 40px;
+  }
+
+  .jobDetailsHeader h2 {
+    font-size: 15px;
+    line-height: 30px;
+  }
+
+  .jobPostHeadline h1 {
+    font-size: 15px;
+    line-height: 42px;
+  }
+
+  .jobDetailsBox {
+    padding: 30px;
+  }
+
+  .jobPostHeadline h1 svg {
+    margin-left: 5px;
+    width: 14px;
+    height: 18px;
+  }
+
+  .jobDetailsContainer {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .jobPostHeadlineInput {
+    width: 100%;
+    height: 54px;
+  }
+
+  .jobPostHeadline ul {
+    font-size: 18px;
+    line-height: 30px;
+  }
+}
+
+@media (max-width: 600px) {
+  .jobDetailsHeader h1 {
+    font-size: 20px;
+    line-height: 20px;
+  }
+
+  .jobDetailsHeader h2 {
+    font-size: 11px;
+    line-height: 20px;
+  }
+
+  .jobPostHeadline h1 {
+    font-size: 15px;
+    line-height: 32px;
+  }
+
+  .jobDetailsBox {
+    padding: 20px;
+  }
+
+  .jobPostHeadline h1 svg {
+    margin-left: 5px;
+    width: 14px;
+    height: 18px;
+  }
+
+  .jobDetailsContainer {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .jobPostHeadlineInput {
+    width: 100%;
+    height: 44px;
+    font-size: 15px;
+  }
+
+  .jobPostHeadlineInput:focus {
+    width: 100%;
+    height: 44px;
+    font-size: 17px;
+    transition: 0.4s;
+  }
+
+  .jobPostHeadline ul {
+    padding-left: 15px;
+    font-size: 13px;
+    line-height: 25px;
+  }
+
+  .jobDetailsInputs input {
+    border-bottom: 1px solid #737b7d;
+    background: none;
+    width: 80%;
+    margin: 50px 0px 40px 0px;
+    padding: 0px 0px 5px 5px;
+    font-size: 13px;
+  }
+
+  .jobDetailsInputs input:focus-visible {
+    outline-color: white;
+    outline-style: unset;
+    outline-width: 1px;
+    border-bottom: 3px solid #937dc2 !important;
+    border-top: none;
+    transition: 0.3s;
+    padding: 0px 0px 6px 6px;
+    font-size: 12px;
+  }
+
+  .jobCategoryDrop {
+    padding: 40px 0px 0px 10px;
+    height: 77px;
+    width: 90%;
+    border-radius: 0px;
+    background-position: 100% 82%;
+  }
+}

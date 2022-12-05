@@ -1,0 +1,1434 @@
+@import url("https://fonts.googleapis.com/css2?family=Lexend+Deca&family=Markazi+Text&family=Noto+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter&family=Lexend+Deca&family=Markazi+Text&family=Mulish&family=Noto+Sans&display=swap");
+@import url("//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css");
+
+/* First Banner  */
+.landingHeader {
+  background-image: url(https://i.ibb.co/xLznrq1/Group-1000004621.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  height: auto;
+  background-size: cover;
+  background-color: #583d88;
+}
+
+.landingHeaderContainer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.landingHeaderContainer h1 {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 45px;
+  line-height: 72px;
+  color: #ffffff;
+}
+
+.landingHeaderText {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-content: center;
+  align-items: flex-start;
+}
+.landingHeaderTextContainer {
+  margin-left: auto;
+  margin-right: auto;
+}
+.landingHeaderText h2 {
+  font-family: "Manrope";
+  font-size: 25px;
+}
+.searchContainer {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.searchContainer h2 {
+  text-decoration: none !important;
+}
+
+.search {
+  position: relative;
+  color: #aaa;
+  font-size: 16px;
+  margin-top: 0px;
+}
+.search button {
+  width: 136px;
+  height: 45px;
+  background: #c689c6;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 56px;
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  color: #ffffff;
+  margin-left: 10px;
+  border: none;
+}
+
+.search {
+  display: inline-block;
+}
+
+.search input {
+  width: 346px;
+  height: 40px;
+  background: rgba(250, 250, 250, 0.93);
+  border-radius: 10px;
+}
+.search input:focus-visible {
+  outline: -webkit-focus-ring-color auto 0px;
+}
+
+.search input {
+  text-indent: 50px;
+}
+
+.search svg {
+  position: absolute;
+}
+
+.search svg {
+  top: 30%;
+  left: auto;
+  right: 93%;
+}
+
+.postJobBtn {
+  width: 300px;
+  height: 45px;
+  background: #c689c6;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 56px;
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  color: #ffffff;
+
+  border: none;
+}
+
+.postJobBtn:hover {
+  color: rgba(255, 255, 255, 1);
+  box-shadow: 0 5px 20px rgba(120, 98, 120, 0.7);
+  transition: 0.4s;
+}
+
+.bannerImg img {
+  width: auto;
+  margin-left: auto;
+}
+
+/* second banner  */
+.secondBanner {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(88, 61, 136, 0.5161414907759979) 50%,
+    rgba(255, 255, 255, 1) 95%,
+    rgba(255, 255, 255, 1) 150%
+  );
+}
+
+.secondBannerHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  width: auto;
+}
+
+.secondBannerHeader h1 {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 32px;
+  color: #2e2b2b;
+}
+
+.secondBannerHeader p {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  color: #777777;
+}
+
+.secondBannerCards {
+  width: auto;
+  height: auto;
+  border-radius: 20px;
+  margin-top: 50px;
+  margin-bottom: 10px;
+}
+
+.secondBannerContent {
+  width: 67%;
+}
+
+.secondBannerCard {
+  position: relative;
+  width: 330px;
+  height: 210px;
+  background: #f6e3e4;
+  border: 5px solid #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.secondBannerCard2 {
+  position: relative;
+  width: 330px;
+  height: 210px;
+  background: rgba(255, 110, 110, 0.15);
+  border: 5px solid #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.secondBannerCard svg {
+  position: absolute;
+  top: -25%;
+  left: 10%;
+}
+
+.secondBannerCard2 svg {
+  position: absolute;
+  top: -25%;
+  left: 10%;
+  width: auto;
+}
+
+.secondBannerCard h1 {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 28px;
+  color: #000000;
+  margin-top: 35px;
+}
+
+.secondBannerCard2 h1 {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 28px;
+  color: #000000;
+  margin-top: 35px;
+}
+
+.secondBannerCard p {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 25px;
+  color: #0000007e;
+}
+
+.secondBannerCard2 p {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 25px;
+  color: #0000007e;
+}
+
+.secondBannerCardBtn {
+  width: 330px;
+  height: auto;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.secondBannerCardBtn button {
+  width: 300px;
+  height: 60px;
+  background: #583d88;
+  box-shadow: 0px 4px 4px rgba(255, 255, 255, 0.25),
+    0px 0px 10px rgba(255, 255, 255, 0.25);
+  border-radius: 30px;
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 28px;
+  color: #ffffff;
+  margin-top: 2rem;
+}
+
+.secondBannerCardBtn button:hover {
+  color: rgba(255, 255, 255, 1);
+  box-shadow: 0 5px 20px rgba(127, 82, 138, 0.7);
+  transition: 0.4s;
+}
+
+.LearnBtn {
+  width: 206px;
+  height: 58px;
+  background: #b35aac;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 56px;
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  color: #ffffff;
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+.LearnBtn:hover {
+  color: rgba(255, 255, 255, 1);
+  box-shadow: 0 5px 20px rgba(120, 98, 120, 0.7);
+  transition: 0.4s;
+}
+
+.SecondImage {
+  margin: 0px 25px;
+}
+
+/* Third Banner  */
+
+/* fourth Banner  */
+.fourthBannerContainer {
+  background-image: url(https://i.ibb.co/tPKsqXq/caucasian-man-working-shoot-1.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 378px;
+  background-size: cover;
+  background-color: #aba6b3;
+  margin: 10px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.fourthBannerText h1 {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 35px;
+  line-height: 60px;
+  color: #ffffff;
+}
+
+.fourthBannerText p {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 44px;
+  color: #ffffff;
+}
+
+.fourthBannerBtn {
+  width: 489px;
+  height: 175px;
+  background: #b35aac;
+  box-shadow: 0px 0px 20px 10px rgba(255, 255, 255, 0.25);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.fourthBannerBtn:hover {
+  box-shadow: 0px 0px 20px 10px rgba(255, 255, 255, 0.418);
+  transition: 0.3s;
+}
+
+.fourthBannerBtn a {
+  text-decoration: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.fourthBannerBtn a h1 {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 60px;
+  color: #ffffff;
+}
+
+.fourthBannerBtn a p {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 36px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+}
+
+/* fifth banner  */
+.fifthBannerContainer {
+  background-image: url(https://i.ibb.co/5W5Jx8M/Group-1000004622.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 800px;
+  background-size: cover;
+  background-color: #ffffff;
+  margin: 10px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px;
+}
+
+.fifthBannerText {
+  margin-left: 40px;
+  margin-bottom: 135px;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.fifthBannerText h1 {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 32px;
+  color: #ffffff;
+  margin-bottom: 30px;
+}
+
+.fifthBannerText p {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 32px;
+  color: #ffffff;
+  margin-bottom: 30px;
+}
+
+.fifthBannerBtn {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 343px;
+  height: 63px;
+  background: #b35aac;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 56px;
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  color: #ffffff;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.fifthBannerBtn:hover {
+  box-shadow: 0px 0px 15px 5px rgba(255, 255, 255, 0.096);
+  transition: 0.2s;
+  color: white;
+}
+
+.fifthBannerImg {
+  margin-bottom: 6px;
+  width: 50%;
+}
+.appImg img {
+  height: 55px;
+  width: 200px;
+}
+.appImg2 img {
+  height: 50px;
+  width: 190px;
+}
+
+@media (max-width: 1440px), (min-width: 1700px) {
+  .bannerImg img {
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 1140px) {
+  .landingHeaderContainer h1 {
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 55px;
+  }
+
+  .landingHeaderText {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .secondBannerContent {
+    width: 85%;
+  }
+
+  .fifthBannerContainer {
+    height: 650px;
+    padding: 30px;
+  }
+
+  .fifthBannerImg {
+    margin-bottom: 0px;
+    width: 50%;
+    height: 600px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .landingHeaderContainer h1 {
+    font-weight: 700;
+    font-size: 35px;
+    line-height: 55px;
+  }
+  .landingHeaderText h2 {
+    font-size: 25px;
+  }
+  .search input {
+    width: 300px;
+    height: 40px;
+    background: rgba(250, 250, 250, 0.93);
+    border-radius: 10px;
+  }
+
+  .search svg {
+    top: 30%;
+    left: auto;
+    right: 90%;
+  }
+
+  .landingHeaderText {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .bannerImg img {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+  }
+
+  .secondBanner img {
+    height: 630px;
+  }
+
+  .secondBannerContent {
+    width: 90%;
+  }
+
+  /* fourth Banner  */
+
+  .fourthBannerText h1 {
+    font-size: 30px;
+    line-height: 45px;
+  }
+
+  .fourthBannerText p {
+    font-size: 20px;
+    line-height: 30px;
+  }
+
+  .fourthBannerBtn {
+    width: 400px;
+    height: 175px;
+  }
+
+  .fourthBannerBtn a h1 {
+    font-size: 30px;
+    line-height: 40px;
+  }
+
+  .fourthBannerBtn a p {
+    font-size: 25px;
+    line-height: 30px;
+  }
+}
+
+@media only screen and (max-width: 990px) {
+  .secondBanner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .landingHeaderText h2 {
+    font-size: 20px;
+  }
+  .secondBanner img {
+    display: none;
+  }
+
+  .landingHeaderContainer h1 {
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 45px;
+    margin-top: 50px;
+  }
+
+  .search input {
+    width: 200px;
+    height: 35px;
+    background: rgba(250, 250, 250, 0.93);
+    border-radius: 10px;
+  }
+
+  .search svg {
+    top: 33%;
+    left: auto;
+    right: 85%;
+  }
+
+  .landingHeaderText {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .bannerImg img {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .secondBannerContent {
+    width: 100%;
+  }
+
+  /* fourth Banner  */
+  .fourthBannerText {
+    text-align: center;
+  }
+
+  .fourthBannerText h1 {
+    font-size: 28px;
+    line-height: 35px;
+  }
+
+  .fourthBannerText p {
+    font-size: 18px;
+    line-height: 25px;
+  }
+
+  .fourthBannerBtn {
+    width: 300px;
+    height: 80px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    margin-top: 10px;
+  }
+
+  .fourthBannerBtn a h1 {
+    font-size: 15px;
+    line-height: 25px;
+  }
+
+  .fourthBannerBtn a p {
+    font-size: 13px;
+    line-height: 25px;
+  }
+
+  .fourthBannerContainer {
+    padding: 10px;
+    display: block;
+    height: auto;
+  }
+
+  /* fifth banner  */
+  .fifthBannerImg {
+    display: none;
+  }
+
+  .fifthBannerText {
+    margin-bottom: 100px;
+    width: auto;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 0px;
+  }
+  .postJobBtn {
+    width: 300px;
+    height: 35px;
+    font-size: 15px;
+  }
+  .search button {
+    width: 110px;
+    height: 35px;
+    font-size: 15px;
+    margin-left: 10px;
+  }
+}
+
+@media only screen and (max-width: 720px) {
+  .landingHeaderTextContainer {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+  .landingHeaderContainer h1 {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 30px;
+    margin-top: 10px;
+  }
+  .landingHeaderText h2 {
+    font-size: 18px;
+  }
+  .search input {
+    width: auto;
+    height: 35px;
+    background: rgba(250, 250, 250, 0.93);
+    border-radius: 10px;
+    text-indent: 50px;
+  }
+  .search input::placeholder {
+    font-size: 14px;
+  }
+
+  .search svg {
+    top: 28%;
+    left: auto;
+    right: 85%;
+  }
+
+  .landingHeaderText {
+    margin-left: 30px;
+  }
+
+  .bannerImg img {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .postJobBtn {
+    width: 250px;
+    height: 35px;
+    font-size: 15px;
+  }
+  .search button {
+    width: 85px;
+    height: 35px;
+    font-size: 15px;
+    margin-left: 10px;
+  }
+  .fifthBannerText p {
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .landingHeader {
+    height: auto;
+  }
+  .landingHeaderText h2 {
+    font-size: 15px;
+    margin-left: 5px !important;
+  }
+  .landingHeaderContainer h1 {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 37px;
+  }
+
+  .search input {
+    width: 170px;
+    height: 30px;
+    background: rgba(250, 250, 250, 0.93);
+    border-radius: 10px;
+  }
+  .searchContainer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  .search svg {
+    width: 7%;
+    top: 25%;
+    left: auto;
+    right: 85%;
+  }
+
+  .bannerImg img {
+    display: none;
+  }
+
+  .postJobBtn {
+    width: 250px;
+    height: 30px;
+    font-size: 10px;
+  }
+  .search button {
+    width: 100px;
+    height: 30px;
+    font-size: 10px;
+    margin-left: 5px;
+  }
+  .landingHeaderText {
+    width: 2000px !important;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+  }
+
+  .secondBannerCard h1 {
+    font-size: 11px;
+    line-height: 15px;
+    margin-top: 35px;
+  }
+
+  .secondBannerCard2 h1 {
+    font-size: 11px;
+    line-height: 15px;
+    margin-top: 35px;
+  }
+
+  .secondBannerCard p {
+    font-family: "Manrope";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 9px;
+    line-height: 15px;
+    color: #0000007e;
+  }
+
+  .secondBannerCard2 p {
+    font-family: "Manrope";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 9px;
+    line-height: 15px;
+    color: #0000007e;
+  }
+
+  .secondBannerCard svg {
+    position: absolute;
+    top: -25%;
+    left: 10%;
+    width: 40%;
+  }
+
+  .secondBannerCard2 svg {
+    position: absolute;
+    top: -20%;
+    left: 10%;
+    width: auto;
+    height: 50px;
+  }
+  .secondBannerCard2 {
+    width: 280px;
+    height: 170px;
+  }
+  .secondBannerCard {
+    height: 170px;
+  }
+  .secondBannerHeader h1 {
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 28px;
+    color: #2e2b2b;
+  }
+
+  .secondBannerHeader p {
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 11px;
+    color: #777777;
+  }
+
+  .secondBannerHeader {
+    margin-bottom: -70px;
+    justify-content: center;
+    align-items: center;
+  }
+  .secondBannerHeader svg {
+    width: 20%;
+  }
+
+  .secondBannerCardBtn button {
+    width: 240px;
+    height: 40px;
+    margin-bottom: 20px;
+    font-size: 15px;
+  }
+  .secondBannerCardBtn {
+    width: auto;
+  }
+
+  /* fourth Banner  */
+  .fourthBannerText h1 {
+    font-size: 19px;
+    line-height: 26px;
+  }
+
+  .fourthBannerText p {
+    font-size: 15px;
+    line-height: 25px;
+  }
+
+  .fourthBannerBtn {
+    width: 260px;
+    height: 60px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    margin-top: 10px;
+  }
+
+  .fourthBannerBtn a h1 {
+    font-size: 15px;
+    line-height: 25px;
+  }
+
+  .fourthBannerBtn a p {
+    font-size: 13px;
+    line-height: 25px;
+  }
+
+  .fourthBannerContainer {
+    margin: 5px;
+  }
+
+  /* fifth banner  */
+  .fifthBannerContainer {
+    padding: 0px;
+    background-image: linear-gradient(180deg, rgb(95, 13, 131), transparent);
+    height: auto;
+  }
+
+  .fifthBannerBtn {
+    width: 190px;
+    height: 40px;
+    background: #b35aac;
+    font-size: 15px;
+    margin-top: 20px;
+    margin-bottom: 0px;
+  }
+
+  .fifthBannerText {
+    margin-left: 0px;
+    margin-bottom: 10px;
+    width: auto;
+    padding: 20px;
+  }
+
+  .fifthBannerText h1 {
+    font-size: 28px;
+    line-height: 35px;
+    color: #ffffff;
+    margin-bottom: 10px;
+  }
+  .appImg img {
+    height: 35px;
+    width: 126px;
+  }
+  .appImg2 img {
+    height: 30px;
+    width: 110px;
+  }
+  .fifthBannerText p {
+    font-size: 15px;
+    line-height: 30px;
+    color: #ffffff;
+    margin-bottom: 10px;
+  }
+  .footerContentLogo p {
+    font-family: "Open Sans";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 20px;
+    margin-bottom: 14px;
+    color: #777777;
+  }
+  .footerContent {
+    text-align: center;
+    padding-top: 10px;
+    color: rgb(0, 0, 0);
+  }
+}
+
+.TitleText {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 35px;
+  line-height: 61px;
+  display: flex;
+  align-items: center;
+  margin: 20px 70px;
+  color: #ffffff;
+}
+
+.ThirdBannerBg {
+  background: #583d88;
+  border-radius: 24px;
+  margin: 10px;
+}
+
+.BannerList {
+  display: flex;
+  margin: 0px 20px;
+  padding: 0px 20px;
+  align-items: center;
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 75px;
+  /* or 312% */
+  color: #ffffff;
+}
+
+.SecondImage {
+  width: 100%;
+  height: 100%;
+}
+
+.BannerList span {
+  margin: 0px 20px;
+  padding: 0px 20px;
+  font-size: 20px;
+}
+
+.HeadingLine {
+  margin: 1rem 0;
+  color: white;
+  border: 0;
+  border-top: 2px solid;
+  opacity: 1.25;
+  width: 60%;
+  margin: 0px 70px;
+}
+
+@media screen and (min-device-width: 320px) and (max-device-width: 425px) {
+  .LearnBtn {
+    width: 158px;
+    height: 36px;
+    background: #b35aac;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 56px;
+    font-family: "Noto Sans";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 22px;
+    color: #ffffff;
+    margin-left: 20px;
+    margin-bottom: 30px;
+  }
+
+  .SecondImage {
+    display: none;
+  }
+  .LearnBtn:hover {
+    color: rgba(255, 255, 255, 1);
+    box-shadow: 0 5px 20px rgba(120, 98, 120, 0.7);
+    transition: 0.4s;
+  }
+
+  .TitleText {
+    font-family: "Manrope";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    margin: 10px 20px;
+    color: #ffffff;
+  }
+
+  .ThirdBannerBg {
+    background: #583d88;
+    border-radius: 24px;
+  }
+
+  .BannerList {
+    display: flex;
+    align-items: center;
+    font-family: "Manrope";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    /* or 312% */
+    color: #ffffff;
+    line-height: 24px;
+    margin: 0px;
+  }
+
+  .BannerList span {
+    margin: 3px 0px;
+    padding: 0px 10px;
+    font-size: 15px;
+  }
+
+  .BannerListImg {
+    width: 15px;
+  }
+
+  .HeadingLine {
+    margin: 1rem 0;
+    color: white;
+    border: 0;
+    border-top: 2px solid;
+    opacity: 1.25;
+    width: 70%;
+    margin: 10px 30px;
+  }
+}
+
+@media screen and (min-device-width: 425px) and (max-device-width: 575px) {
+  .SecondImage {
+    display: none;
+  }
+}
+
+@media screen and (min-device-width: 425px) and (max-device-width: 768px) {
+  .TitleText {
+    font-family: "Manrope";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    margin: 20px 30px;
+    color: #ffffff;
+  }
+
+  .ThirdBannerBg {
+    background: #583d88;
+    border-radius: 24px;
+  }
+
+  .BannerList {
+    display: flex;
+    align-items: center;
+    font-family: "Manrope";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    /* or 312% */
+    color: #ffffff;
+    line-height: 24px;
+    margin: 0px;
+  }
+
+  .BannerList span {
+    margin: 3px 0px;
+    padding: 0px 10px;
+    font-size: 15px;
+  }
+
+  .BannerListImg {
+    width: 15px;
+  }
+
+  .LearnMore {
+    background: #b35aac;
+    border-radius: 56px;
+    width: 206px;
+    height: 58px;
+    font-family: "Open Sans";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    /* identical to box height, or 120% */
+
+    display: flex;
+    align-items: center;
+
+    color: #ffffff;
+  }
+
+  .HeadingLine {
+    margin: 1rem 0;
+    color: white;
+    border: 0;
+    border-top: 2px solid;
+    opacity: 1.25;
+    width: 70%;
+    margin: 10px 30px;
+  }
+}
+
+@media screen and (min-device-width: 768px) and (max-device-width: 1130px) {
+  .TitleText {
+    font-family: "Manrope";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    margin: 20px 30px;
+    color: #ffffff;
+  }
+
+  .ThirdBannerBg {
+    background: #583d88;
+    border-radius: 24px;
+  }
+
+  .BannerList {
+    display: flex;
+    align-items: center;
+    font-family: "Manrope";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    /* or 312% */
+    color: #ffffff;
+    line-height: 50px;
+    margin: 0px;
+  }
+
+  .BannerList span {
+    margin: 3px 0px;
+    padding: 0px 10px;
+    font-size: 15px;
+  }
+
+  .BannerListImg {
+    width: 15px;
+  }
+
+  .HeadingLine {
+    margin: 1rem 0;
+    color: white;
+    border: 0;
+    border-top: 2px solid;
+    opacity: 1.25;
+    width: 70%;
+    margin: 10px 30px;
+  }
+}
+
+.TitleText {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 35px;
+  line-height: 61px;
+  display: flex;
+  align-items: center;
+  margin: 20px 70px;
+  color: #ffffff;
+}
+
+.ThirdBannerBg {
+  background: #583d88;
+  border-radius: 24px;
+}
+
+.BannerList {
+  display: flex;
+  margin: 0px 20px;
+  padding: 0px 20px;
+  align-items: center;
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 75px;
+  /* or 312% */
+  color: #ffffff;
+}
+
+.BannerList span {
+  margin: 0px 20px;
+  padding: 0px 20px;
+}
+
+.HeadingLine {
+  margin: 1rem 0;
+  color: white;
+  border: 0;
+  border-top: 2px solid;
+  opacity: 1.25;
+  width: 70%;
+  margin: 0px 70px;
+}
+
+@media screen and (min-device-width: 320px) and (max-device-width: 425px) {
+  .TitleText {
+    font-family: "Manrope";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    margin: 10px 20px;
+    color: #ffffff;
+  }
+
+  .ThirdBannerBg {
+    background: #583d88;
+    border-radius: 24px;
+  }
+
+  .BannerList {
+    display: flex;
+    align-items: center;
+    font-family: "Manrope";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    /* or 312% */
+    color: #ffffff;
+    line-height: 24px;
+    margin: 0px;
+  }
+
+  .BannerList span {
+    margin: 3px 0px;
+    padding: 0px 10px;
+    font-size: 10px;
+  }
+
+  .BannerListImg {
+    width: 15px;
+  }
+
+  .HeadingLine {
+    margin: 1rem 0;
+    color: white;
+    border: 0;
+    border-top: 2px solid;
+    opacity: 1.25;
+    width: 70%;
+    margin: 10px 30px;
+  }
+}
+
+@media screen and (min-device-width: 425px) and (max-device-width: 768px) {
+  .TitleText {
+    font-family: "Manrope";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    margin: 20px 30px;
+    color: #ffffff;
+  }
+
+  .ThirdBannerBg {
+    background: #583d88;
+    border-radius: 24px;
+  }
+
+  .BannerList {
+    display: flex;
+    align-items: center;
+    font-family: "Manrope";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    /* or 312% */
+    color: #ffffff;
+    line-height: 24px;
+    margin: 0px;
+  }
+
+  .BannerList span {
+    margin: 0px 0px;
+    padding: 0px 10px;
+    font-size: 15px;
+  }
+
+  .BannerListImg {
+    width: 15px;
+  }
+
+  .HeadingLine {
+    margin: 1rem 0;
+    color: white;
+    border: 0;
+    border-top: 2px solid;
+    opacity: 1.25;
+    width: 70%;
+    margin: 10px 30px;
+  }
+}
+
+@media screen and (min-device-width: 768px) and (max-device-width: 1130px) {
+  .TitleText {
+    font-family: "Manrope";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    margin: 20px 30px;
+    color: #ffffff;
+  }
+
+  .ThirdBannerBg {
+    background: #583d88;
+    border-radius: 24px;
+  }
+
+  .BannerList {
+    display: flex;
+    align-items: center;
+    font-family: "Manrope";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    /* or 312% */
+    color: #ffffff;
+    line-height: 50px;
+    margin: 0px;
+  }
+
+  .BannerList span {
+    margin: 0px 0px;
+    padding: 0px 10px;
+    font-size: 15px;
+  }
+
+  .BannerListImg {
+    width: 15px;
+  }
+
+  .HeadingLine {
+    margin: 1rem 0;
+    color: white;
+    border: 0;
+    border-top: 2px solid;
+    opacity: 1.25;
+    width: 70%;
+    margin: 10px 30px;
+  }
+}

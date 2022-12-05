@@ -1,0 +1,136 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter&family=Lexend+Deca&family=Manrope&family=Markazi+Text&family=Mulish&family=Noto+Sans&family=Poppins&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Inter&family=Lexend+Deca&family=Manrope&family=Markazi+Text&family=Mulish&family=Noto+Sans&family=Open+Sans&family=Poppins&display=swap");
+
+.footerContent {
+  text-align: start;
+  padding-top: 50px;
+  color: rgb(0, 0, 0);
+}
+.landingLogoFooter {
+  width: 30%;
+  margin-bottom: 10px;
+}
+.footerContainer {
+  width: 100%;
+  height: auto;
+  background-color: rgb(255, 254, 254);
+  margin-top: 50px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.footerContentLogo p {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 28px;
+  color: #777777;
+}
+
+.footerContentLogo h1 {
+  margin-bottom: 50px;
+}
+
+.footerContentHeader h4 {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 900;
+  font-size: 18px;
+  line-height: 30px;
+  color: #000000;
+}
+
+.hiringBox {
+  width: 60px;
+  height: 23px;
+  background: #fe3342;
+  border-radius: 120px;
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 10px;
+  line-height: 24px;
+  color: #ffffff;
+  text-align: center;
+  margin-left: 5px;
+}
+
+.footerContentHeader a {
+  text-decoration: none;
+  cursor: pointer;
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 32px;
+  color: #777777;
+}
+
+.footerContentCopy {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 20px;
+  letter-spacing: -0.204545px;
+  color: black;
+  mix-blend-mode: normal;
+  opacity: 0.5;
+}
+.footerContentCopyScroll {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 20px;
+  letter-spacing: -0.204545px;
+  color: black;
+  mix-blend-mode: normal;
+  opacity: 0.5;
+}
+
+.footerContentLast {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 20px;
+  letter-spacing: -0.204545px;
+  color: black;
+}
+
+@media (max-width: 600px) {
+  .footerContentHeader h4 {
+    font-family: "Open Sans";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 30px;
+    color: #000000;
+  }
+  .footerContentCopy {
+    font-size: 10px;
+  }
+  .footerContentHeader a {
+    font-size: 10px;
+  }
+  .footerContentCopyScroll {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 20px;
+    letter-spacing: -0.204545px;
+    color: black;
+    mix-blend-mode: normal;
+    opacity: 0.5;
+  }
+  .landingLogoFooter {
+    width: 30%;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

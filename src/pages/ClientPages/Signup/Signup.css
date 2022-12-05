@@ -1,0 +1,328 @@
+.loginForm {
+  display: flex;
+}
+.loginFormFirstContainer {
+  position: relative;
+  width: 50%;
+}
+.loginFormFirstContainer img {
+  width: -webkit-fill-available;
+  height: 775px;
+}
+.floatingText {
+  position: absolute;
+  top: 80%;
+  left: 10%;
+  right: 0%;
+}
+.floatingText h1 {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 36px;
+  line-height: 46px;
+  color: #ffffff;
+}
+.floatingText p {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 50px;
+  color: #ffffff;
+}
+.loginFormSecondContainer {
+  width: 50%;
+  text-align: center;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.loginFormSecondContainer h1 {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 36px;
+  line-height: 100px;
+  color: #000000;
+  -webkit-text-stroke-width: thin;
+  letter-spacing: 0.1rem;
+}
+.loginFormSecondContainer p {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 27px;
+  color: #000000;
+}
+.loginFormSecondContainerBtn {
+  justify-content: center;
+  align-items: center;
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 27px;
+  color: #000000;
+  width: 400px;
+  height: 60px;
+  border: 1px solid #d9d9d9;
+  border-radius: 6px;
+  margin-top: 20px;
+}
+.loginFormSecondContainerBtn:hover {
+  background-color: #1a59b7;
+  color: white;
+  transition: 0.5s;
+  transform: scaleX(1.05);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 30px;
+  letter-spacing: -0.02rem;
+}
+.break {
+  width: 25%;
+  height: 0px;
+  border: 0.5px solid #e0e0e0;
+  background-color: #86808036;
+}
+.breakText {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #7a7a7a;
+}
+.loginInput {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.loginInput input {
+  margin-top: 10px;
+  padding: 10px;
+  border-bottom: 1px solid #e0e0e0;
+}
+.loginInput input:focus-visible {
+  outline: -webkit-focus-ring-color auto 0px;
+  border-bottom: 1px solid #aaa9a9;
+  transition: 0.2s;
+  transform: scaleX(1.1);
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+.loginInput input::placeholder {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 27px;
+  color: #000000;
+}
+.loginInput input:focus-visible::placeholder {
+  font-weight: 300;
+  font-size: 12px;
+  color: #d3cfcf;
+  line-height: 30px;
+  transition: 0.2s;
+  transform: scaleY(1.1);
+}
+.rememberForgot {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 20px;
+}
+.signUpFree {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15px;
+}
+.form-check-input:focus {
+  border-color: #eeeff0;
+  outline: 0;
+  box-shadow: 0 0 0 0 rgb(13 110 253 / 25%);
+}
+.loginBtnSecondary button {
+  width: 430px;
+  height: 62px;
+  background: #4cb71a;
+  border-radius: 6px;
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 22px;
+  color: white;
+  margin-top: 30px;
+}
+.loginBtnSecondary button:hover {
+  background-color: #4cb71a;
+  color: white;
+  transition: 0.2s;
+  transform: scaleX(1.01);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 30px;
+  letter-spacing: 0.02rem;
+}
+@media (max-width: 1215px) {
+}
+
+@media (max-width: 1095px) {
+}
+
+@media (max-width: 1024px) {
+  .loginFormFirstContainer img {
+    height: auto;
+  }
+  .floatingText p {
+    font-size: 17px;
+    line-height: 20px;
+  }
+  .floatingText h1 {
+    font-size: 28px;
+    line-height: 35px;
+  }
+  .loginFormSecondContainer h1 {
+    font-size: 28px;
+    line-height: 50px;
+  }
+  .loginFormSecondContainer p {
+    font-size: 17px;
+    line-height: 20px;
+  }
+  .loginFormSecondContainerBtn {
+    font-size: 15px;
+    line-height: 27px;
+    width: 60%;
+    height: 50px;
+  }
+  .loginInput input::placeholder {
+    font-weight: 300;
+    font-size: 13px;
+    line-height: 20px;
+    color: #000000;
+  }
+  .rememberForgot {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+    justify-content: center;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 990px) {
+  .loginFormFirstContainer {
+    display: none;
+  }
+  .loginFormSecondContainer {
+    width: 100%;
+    background-image: url(https://i.ibb.co/p0gFDqD/Rectangle-1.png);
+    background-color: #cccccc;
+    height: 700px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 70px;
+  }
+  .loginFormSecondContainer h1 {
+    font-size: 28px;
+    line-height: 50px;
+    color: white;
+  }
+  .loginFormSecondContainer p {
+    color: white;
+  }
+  .loginFormSecondContainerBtn {
+    color: white;
+    background-color: #1a59b770;
+    border: 0px solid #d9d9d9;
+    width: 60%;
+  }
+  .loginInput input {
+    background-color: #1a59b700;
+    color: white;
+  }
+  .loginInput input:focus-visible {
+    outline: -webkit-focus-ring-color auto 0px;
+    border-bottom: 2px solid #ffffff;
+    transition: 0.2s;
+    transform: scaleX(1.1);
+    overflow-y: hidden;
+    overflow-x: hidden;
+  }
+
+  .loginInput input::placeholder {
+    font-family: "Manrope";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 27px;
+    color: #ffffff;
+  }
+  .loginInput input:focus-visible::placeholder {
+    font-weight: 300;
+    font-size: 12px;
+    color: #d3cfcf;
+    line-height: 30px;
+    transition: 0.2s;
+    transform: scaleY(1.1);
+  }
+  .form-check {
+    color: white;
+  }
+  .forgotPassword {
+    color: white;
+  }
+  .loginBtnSecondary button {
+    background: #4cb71aa6;
+    border-radius: 6px;
+    width: 60%;
+    height: 40px;
+    margin-top: 20px;
+  }
+  .signUpFree {
+    color: white;
+  }
+  .breakText {
+    color: white;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .loginInput {
+    width: 85%;
+  }
+  .loginFormSecondContainer p {
+    font-size: 15px;
+    line-height: 25px;
+  }
+  .loginFormSecondContainerBtn {
+    height: 40px;
+    width: 80%;
+    font-size: 13px;
+  }
+  .loginBtnSecondary button {
+    background: #4cb71aa6;
+    border-radius: 6px;
+    width: 85%;
+    height: 40px;
+  }
+  .loginFormSecondContainerBtn:hover {
+    background-color: #1a59b7;
+    color: white;
+    transition: 0.5s;
+    transform: scaleX(1.05);
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 30px;
+    letter-spacing: -0.02rem;
+  }
+}

@@ -1,0 +1,64 @@
+.termsContainer h1 {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 28px;
+  color: rgba(0, 0, 0, 0.9);
+  margin-top: 20px;
+}
+.underLine {
+  width: 250px;
+  height: 10px;
+  background: #4cb71a;
+  margin-top: 5px;
+}
+.conditionContainer {
+  margin-bottom: 30px;
+}
+.conditionContainer h1 {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 22px;
+  line-height: 28px;
+  color: rgba(0, 0, 0, 0.9);
+  margin-top: 20px;
+  text-align: center;
+}
+.conditionContainer h3 {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 15px;
+  line-height: 35px;
+  color: rgba(0, 0, 0, 0.9);
+  -webkit-text-stroke: thin;
+  letter-spacing: 0.1rem;
+}
+.conditionContainer h4 {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 15px;
+  line-height: 28px;
+  color: rgba(0, 0, 0, 0.9);
+  -webkit-text-stroke: thin;
+  letter-spacing: 0.1rem;
+}
+.conditionContainer p {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 200;
+  font-size: 14px;
+  line-height: 30px;
+  color: #000000;
+}
+.conditionContainer p b {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 30px;
+  color: #000000;
+}

@@ -1,0 +1,337 @@
+/* Noto Sans font  */
+@import url("https://fonts.googleapis.com/css2?family=Lexend+Deca&family=Markazi+Text&family=Noto+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter&family=Lexend+Deca&family=Markazi+Text&family=Mulish&family=Noto+Sans&display=swap");
+
+.logoStyle {
+  color: #ffffff;
+  font-size: 38px;
+  font-weight: 700;
+}
+
+.customNav {
+  top: 0 !important;
+  z-index: 1020 !important;
+  position: sticky !important;
+  padding-left: 30px !important;
+  padding-right: 30px !important;
+  margin-bottom: 20px;
+  height: 90px;
+  background: #937dc2;
+  box-shadow: 0px 4px 4px rgba(202, 200, 200, 0.25);
+  color: white;
+}
+
+.nonActive {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 400 !important;
+  font-size: 20px !important;
+  line-height: 27px !important;
+  color: white !important;
+  margin: 0px 25px !important;
+  text-decoration: none;
+}
+
+.navLinkStyle a {
+  border: 1px solid white;
+  border-radius: 10px;
+  padding: 6px 25px 6px 25px;
+  overflow: hidden;
+}
+
+.navLinkStyle a:hover {
+  background-color: white !important;
+  color: #7656bd !important;
+  transition: 0.2s;
+}
+
+.active {
+  text-decoration: none;
+  font-weight: 600 !important;
+  font-size: 20px !important;
+  line-height: 27px !important;
+  color: white !important;
+  transition: 0.2s !important;
+  overflow: hidden !important;
+  margin: 0px 25px !important;
+}
+
+.activeHide {
+  display: none;
+}
+
+.dropdownMenu[data-bs-popper] {
+  top: 100%;
+  left: -350% !important;
+  margin-top: var(--bs-dropdown-spacer);
+}
+
+.icon svg {
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+.dropdownColor:empty::after {
+  color: #ffffff !important;
+}
+
+.dropdown2::after {
+  display: none;
+}
+
+.dropdown2 {
+  border: none;
+}
+
+.dropdownCard {
+  width: 400px;
+  height: 500px;
+  background: #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+  inset: 50px auto auto -100px !important;
+  margin-bottom: 10px;
+  margin-top: 0px;
+  padding-top: 0px;
+}
+
+.NotificationHeader {
+  height: 50px;
+  background: #957fc3;
+  border-radius: 15px 15px 0px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.NotificationHeader h2 {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+  color: #ffffff;
+  margin-bottom: 0px;
+}
+
+.notificationBody {
+  height: 450px;
+  overflow-y: scroll;
+}
+
+/* width */
+.notificationBody::-webkit-scrollbar {
+  width: 3px;
+}
+
+/* Track */
+.notificationBody::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+.notificationBody::-webkit-scrollbar-thumb {
+  background: #c179ba;
+}
+
+/* Handle on hover */
+.notificationBody::-webkit-scrollbar-thumb:hover {
+  background: #c179ba;
+}
+
+.read {
+  margin: 10px;
+  width: auto;
+  height: 51px;
+  background: #ffffff;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+}
+
+.unRead {
+  margin: 10px;
+  width: auto;
+  height: 51px;
+  background: #f0f0f0;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+}
+
+.unRead h3 {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  color: #605c5c;
+  margin-bottom: 0px;
+}
+
+.unRead p {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  color: #000000;
+  opacity: 0.4;
+  margin-bottom: 0px;
+  margin-left: 15px;
+}
+
+.read h3 {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  color: #605c5c;
+  margin-bottom: 0px;
+}
+
+.read p {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  color: #000000;
+  opacity: 0.4;
+  margin-bottom: 0px;
+  margin-left: 15px;
+}
+
+.read svg {
+  margin: 0px 20px;
+}
+
+.unRead svg {
+  margin: 0px 20px;
+}
+
+.navDisplay {
+  display: none !important;
+}
+
+@media (max-width: 1215px) {
+  .navLinkStyle a {
+    margin: 0px 10px !important;
+  }
+
+  .icon svg {
+    color: #ffffff;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}
+
+@media (max-width: 1095px) {
+  .icon svg {
+    margin-left: 13px;
+    margin-right: 13px;
+  }
+
+  .navLinkStyle a {
+    margin: 0px 11px !important;
+  }
+}
+
+@media (max-width: 1025px) {
+  .navLinkStyle a {
+    font-size: 16px !important;
+  }
+
+  .dropdownCard {
+    width: 380px;
+    inset: 50px auto auto -100px !important;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .dropdownColor:empty::after {
+    color: #ffffff !important;
+  }
+
+  .iconMobileView svg {
+    color: white !important;
+  }
+
+  .navLinkStyle {
+    margin-right: 0px !important;
+  }
+
+  .navLinkStyle a {
+    border: 1px solid white;
+    border-radius: 10px;
+    overflow: hidden;
+    width: auto;
+    text-align: center !important;
+    margin-left: auto !important;
+  }
+
+  .userNameShow {
+    display: none;
+  }
+
+  .navDisplay {
+    display: flex !important;
+  }
+
+  .navHidden {
+    display: none !important;
+  }
+
+  .navFlex {
+    display: flex !important;
+    width: auto !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    margin-right: 0px !important;
+  }
+
+  .logoStyle {
+    font-size: 20px;
+    margin-bottom: auto;
+    margin-left: 5px;
+  }
+
+  .dropdownCard {
+    width: 400px;
+    inset: 50px auto auto -195px !important;
+  }
+
+  .customNav {
+    margin-bottom: 10px;
+    height: auto !important;
+    padding-left: 10px !important;
+    padding-right: 0px !important;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .navFlex {
+    width: 65% !important;
+  }
+
+  .iconMobileView {
+    width: 22px;
+    height: 25px;
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+    padding: 0px;
+  }
+
+  .dropdownCard {
+    width: 300px;
+    inset: 50px auto auto -140px !important;
+  }
+
+  .customNav {
+    height: auto;
+    padding-left: 10px !important;
+    padding-right: 0px !important;
+  }
+}

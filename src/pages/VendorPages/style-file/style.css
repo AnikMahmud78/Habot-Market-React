@@ -1,0 +1,878 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;600&family=Kanit&family=Manrope:wght@200;300;400;500;600;700;800&family=Open+Sans:wght@300;400&family=Poppins:ital,wght@0,200;0,300;0,500;1,300&family=Raleway:ital,wght@0,400;0,600;1,200;1,800;1,900&family=Roboto+Slab:wght@300;400&family=Ubuntu:wght@300&family=Varela+Round&display=swap');
+.pad-wrapper{
+    padding: 1.429vw;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.parent_content .content {
+    display: grid;
+    height: 100%;
+    grid-template-rows: initial;
+    grid-template-columns: 64.286vw 26.929vw;
+    gap: 1.571vw;
+}
+.content .Main_card, .right-notificationBar{
+    border: 1px solid #DFE0EB;
+    border-radius: 8px;
+}
+.content .right-notificationBar{
+    min-height:initial;
+}
+.vendor_card{
+    width: 100%;
+    min-height: 100%;
+    position: relative;
+}
+.vendor_card .banner_img p {
+    font-family: 'Manrope';
+    font-style: normal;
+    font-weight: 200;
+    font-size: 1.5vw;
+    line-height: 20px;
+    color: #fff;
+}
+.vendor_card .banner_img{
+    min-height: 9.643vw;
+    background: #CBCBCB;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    margin: 4px 10px;
+    border-radius: 8px 8px 0px 0px;
+}
+.vendor_card .vendor-img{
+    position: absolute;
+    width:4.857vw;
+    min-height:4.857vw;
+    background: #292D55;
+    border-radius: 50%;
+    left:1.786vw;
+    top: 24%;
+}
+.vendor-info{
+    padding: 4vw 1.7vw 2vw;
+}
+.vendor-info .vendor_name{
+    font-size:1.714vw;
+}
+.vendor-info .vendor_desc{
+    margin-top: 14px;
+}
+.vendor_desc p{
+    width: 35vw;
+    font-size: 1vw;
+    color: #00000099;
+}
+.vendor-info .apply-btns{
+    display:flex;
+    margin-top: 1.4vw;
+}
+.apply-btns button{
+    width: 11.286vw;
+    min-height: 2.429vw;
+    border-radius: 1.429vw;
+    background: #fff;
+    border: 1px solid #292D55;
+    color: #292D55;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 0.714vw;
+    font-size: 1vw;
+    cursor: pointer;
+}
+
+.apply-btns button.active{
+    background-color:#292D55;
+    color: #ffff;
+}
+.apply-btns button a{
+    display: flex;
+    color: #292D55;
+    text-decoration: none;
+    cursor: pointer;
+    align-items: center;
+}
+.apply-btns button span{
+    margin-left: 10px;
+}
+.vendor_card .links{
+    height: 49px;
+    border-top: 1px solid #DFE0EB;
+}
+.links ul{
+    display: flex;
+    justify-content: space-evenly;
+    width: 22vw;
+    height: 100%;
+    list-style: none;
+    margin-bottom: 0;
+}
+.links ul li{
+    color: #00000099;
+    font-size: 16px;
+    padding: 11.5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.links ul li.active{
+    color: #4CB71A;
+    border-bottom: 2px solid #4CB71A;
+}
+@media (max-width:1215px) and (min-width:960px){
+    .Main_card .vendor_card .links ul{
+        width: 27vw;
+    }
+}
+@media (max-width:950px)and (min-width:800px){
+    /* .parent_content .content{
+        grid-template-rows:  33.214vw 33.429vw;
+    } */
+    .vendor_card .links{
+        height: 4.7vw;
+    }
+    .links ul{
+        width: 32vw;
+    }
+    .links ul li{
+        font-size: 10px;
+    padding: 13px 4px;
+    }
+}
+@media (max-width:800px) {
+    .parent_content .content{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+    }
+    .content .Main_card{
+        width: 100%;
+    }
+    .links ul li{
+        font-size: 10px;
+        padding: 10px;
+    }
+    .links ul {
+        width:36%;
+    }
+    .content .right-notificationBar{
+        display: none;
+    }
+}
+@media (max-width:500px) {
+    .vendor-info .apply-btns {
+        margin-top: 3.4vw;
+    }
+    .links ul {
+        width: 100vw;
+    }
+    .links ul li{
+        padding: 0px 10px;
+    }
+    .vendor_desc p {
+        font-size: 2.5vw;
+        width: 100%;
+    }
+    .apply-btns button {
+        width: 35.286vw;
+        min-height: 7.429vw;
+        border-radius: 3.429vw;
+        background: #fff;
+        border: 1px solid #292D55;
+        color: #292D55;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 2.14vw;
+        font-size: 4vw;
+        cursor: pointer;
+    }
+    .apply-btns button a svg{
+        width: 18px;
+        height: 20px;
+        margin-top: 1px;
+    }
+    .apply-btns button span {
+        margin-left: 2px;
+        margin-top: 0px;
+    }
+    .vendor-info .vendor_name {
+        font-size: 4vw;
+
+    }
+    .vendor-info .vendor_desc {
+        margin-top: 5px;
+    }
+    .vendor_card .banner_img p {
+        font-size: 2.5vw;
+    }
+    .vendor_card .vendor-img{
+        top: 14%;
+        left: 2.786vw;
+        width: 6.857vw;
+        min-height: 6.857vw;
+    }
+    .linked {
+        width: 94%;
+    }
+    .job-info-header .job-tile{
+        font-size: 12px
+    }
+    .mute-text{
+        font-size: 3vw !important;
+    }
+    .job-info-container .job-info .info-title{
+        font-size: 12px;
+    }
+    .job-info-container .job-info .job-desc{
+        font-size: 2vw;
+    }
+    .job-info-container .document-file .document-icon{
+        display: flex;
+        align-items: center;
+    }
+    .job-info-container .document-file .document-icon img{
+        width: 2.2vw;
+    }
+    .job-info-container .document-file .doc-text{
+        font-size: 10px;
+    }
+}
+
+/* JOB INFO CONTAINER  */
+
+.job-info-container{
+    border: 1px solid lightgrey;
+    border-radius: 8px;
+    margin-bottom: 22px;
+}
+.job-info-container .job-info-header{
+    min-height:4.500vw;
+    width: 100%;
+    padding: 0.714vw 2.500vw;
+    border-bottom: 1px solid #DFE0EB;
+}
+.job-tile{
+    font-size: 1.286vw;
+}
+.mute-text{
+    font-size: 1vw;
+    color: lightgrey;
+}
+.job-info-container .job-info{
+    padding: 2.143vw 2.143vw 1.429vw;
+}
+.job-info .info-title{
+    font-size:1.429vw;
+}
+.job-info .job-desc{
+    font-size: 1vw;
+    color: #00000099;
+    margin-top: 15px;
+}
+.job-info-container .document-file{
+    min-height:3.429vw;
+    display: flex;
+    align-items: center;
+    padding: 0 1.786vw;
+    border-top: 1px solid lightgrey;
+}
+.document-file .document-icon{
+    display: flex;
+    align-items: center;
+}
+.document-file .document-icon img{
+     width: 1.2vw;
+}
+.document-file .doc-text{
+    padding:0 0 0 0.571vw;
+    font-size: 1vw;
+}
+
+.side-bar .title{
+    min-height: 5.071vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    color: #000000E5;
+    font-size:1.143vw;
+    border-bottom: 1px solid #DFE0EB;
+}
+.side-bar .drop-convo{
+    display: flex;
+    padding: 1.500vw;
+    justify-content: space-around;
+    border-bottom: 1px solid #DFE0EB;
+    text-decoration: none;
+    color: #323232;
+}
+.side-bar .drop-convo:hover{
+    background-color: #EEF6FB;
+}
+.drop-convo .sender-img{
+    width: 2vw;
+    height: 2vw;
+    background: #D9D9D9;
+    border-radius: 50%;
+}
+.drop-convo .sender-info{
+    width: 20vw;
+}
+.sender-info .note{
+    font-size: 0.9vw;
+    margin-bottom: 0;
+}
+.note a{
+    color: #323232;
+    text-decoration: none;
+}
+.sender-info .time{
+    font-size: 0.8vw;
+    color: #00000099;
+}
+
+.transaction{
+    padding-top: 48px;
+    position: relative;
+}
+.transaction .filter{
+    position: absolute;
+    top: 1.286vw;
+    right: 1.286vw;
+    vertical-align: middle;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 4vw;
+}
+.filter .filter-text{
+    font-size: 1vw;
+    color: #00000099;
+}
+.transaction .transaction-area{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.286vw;
+    border-radius: 1.286vw;
+    background: #FFFFFF;
+    border: 1px solid #E0DFDC;
+    border-radius: 8px;
+}
+.transaction-area .left-area{
+    display: flex;
+    padding: 13px;
+    width: 15rem;
+    justify-content: space-between;
+}
+.left-area .checked{
+    padding: 15px 15.5px;
+    width: 49px;
+    height: 49px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+    border-radius: 4px;
+}
+.transaction-area .right-area{
+    padding-right: 2.429vw;
+    display: flex;
+    align-items: center;
+}
+.right-area span{
+    margin-right:1.286vw;
+    color: #00000073;
+    font-size:0.786vw;
+}
+.right-area .paid-payment{
+    font-size: 15px;
+    color: #4CB71A;
+}
+
+@media (max-width:700px) {
+    .right-area span {
+        font-size: 2vw;
+    }
+    .transaction-area .left-area{
+        justify-content: space-between;
+        align-items: center;
+        width:11rem;
+    }
+    .transaction-area .left-area .checked img{
+        width: 14px;
+    }
+    .left-area .checked-details{
+        font-size: 10px;
+    }
+    
+}
+@media (max-width:450px){
+    .transaction .transaction-area .left-area{
+        width: 50%;
+    }
+    .left-area .checked-details{
+        font-size: 8px;
+    }
+    
+}
+@media (max-width:350px){
+    .left-area .checked{
+        padding: 3px 9.5px;
+        width: 32px;
+        height: 32px
+    }
+}
+
+/* NOTIFICATION CARD */
+.d-block{
+    display: block;
+}
+.d-none{
+    display: none;
+}
+
+.notification-card{
+    max-width: 1200px;
+    margin: 20px auto 25vw;
+}
+.notification-card .notification-header{
+    display: flex;
+    justify-content: space-between;
+    padding: 2.163vw 15px;
+}
+.notification-header span{
+    font-size: 2.163vw;
+}
+.notification-header .update-btns{
+    width: 26%;
+    display: flex;
+    justify-content: space-between;
+}
+.update-btns .Btn{
+    height: 36px;
+    width: 96px;
+    border-radius: 10px;
+    border: 1px solid #B1B1B1;
+    font-weight: 800;
+    color: #B5B5B5;
+    background-color: #fff;
+    cursor: pointer;
+}
+.update-btns .Btn.active{
+    background-color: #E1D5FC;
+    color: #323232;
+    border: none;
+}
+.notification-card .msg-thrown{
+    margin-top: 14px;
+    padding: 27px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.notification-card .msg-thrown:hover{
+    background-color: #EEF6FB;
+}
+.msg-thrown.active{
+    background: #EEF6FB;
+}
+.msg-thrown .left-area{
+    display: block;
+}
+.msg-thrown .left-area .client-img{
+    display: inline-block;
+    margin-top: 11px;
+}
+.left-area .msg-bar{
+    margin: 11px 0 15px 20px;
+    display: inline-block;
+    vertical-align: top;
+}
+@media (min-width:1000px){
+    .left-area .msg-bar{
+        width: 30vw;
+    }
+}
+
+@media (max-width:900px) {
+    
+    .linked {
+        width: 94%;
+    }
+    .notification-card .notification-header{
+        justify-content: space-around;
+    }
+    .notification-header span{
+        font-size: 22px;
+    }
+    .notification-header .update-btns{
+        gap: 10px;
+        justify-content: center;
+        width: auto;
+    }
+    .update-btns .btn{
+        font-size: 12px;
+        height: 32px;
+        width: 74px;
+    }
+    .notification-card .msg-thrown{
+        align-items: flex-start;
+    }
+    .vendor_card .banner_img {
+		margin: 1px 2px;
+	}
+}
+@media (max-width: 480px){
+    .transaction .filter {
+        right: 8.286vw;
+        width: 8vw;
+    }
+    .transaction .filter .filter-text {
+        font-size: 4vw;
+        margin-right: 5px;
+    }
+    .notification-header span{
+        font-size: 3.5vw;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .vendor_card .banner_img {
+        min-height: 11.643vw;
+    }
+}
+/* Chat AREA */
+.pad-append{
+    gap: 37px;
+    margin-bottom: 15vw;
+}
+.margin-append{
+    margin-right: 10px;
+}
+.chatPage li.opened-profile{
+    width: 40%;
+    justify-content: space-between;
+}
+.notification-bar{
+    width: 27%;
+    padding: 20px 25px;
+    border: 1px solid #DFE0EB;
+    border-radius: 26px;
+}
+.notification-bar .header{
+    font-size: 20px;
+}
+.notification-bar .field{
+    margin-top: 19px;
+    position: relative;
+}
+.field img{
+    width: 20px;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+}
+.field input{
+    width: 66%;
+    height: 47px;
+    border-radius: 10px;
+    border: 1px solid #FDFDFF;
+    padding-left: 50px;
+    outline: none;
+    box-shadow: 1px 1px 3px 1px #dfe0eb;
+}
+::placeholder {
+    color: #DBDBDB;
+    opacity: 1; /* Firefox */
+  }
+  
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color: #DBDBDB;
+  }
+  
+  ::-ms-input-placeholder { /* Microsoft Edge */
+   color: #DBDBDB;
+  }
+.msg{
+    border: 1px solid #DFE0EB;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 10px;
+    padding: 11px;
+    margin-top: 14px;
+    box-shadow: 1px 1px 6px 3px #dfe0eb;
+    cursor: pointer;
+}
+.left-area{
+    display: flex;
+    width: 95%;
+}
+.left-area .client-img{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.dot-img{
+    position: absolute;
+    bottom: 11px;
+    right: 0;
+    z-index: 9;;
+}
+.msg .left-area .client-img::after{
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: white;
+    bottom: 9px;
+    right: -2px;
+    border-radius: 50%;
+}
+.left-area .about-client{
+    padding-left: 11px;
+}
+.left-area .about-client .client-name{
+    font-weight: 700;
+}
+.msg-bar .job-type{
+    font-size:0.8vw;
+}
+.mainchat-area{
+    width: 70%;
+    border: 1px solid #DFE0EB;
+    border-radius: 10px;
+}
+.mainchat-area .header{
+    display: flex;
+    justify-content: space-between;
+    padding: 32px 32px 32px 32px;
+    border-bottom: 1px solid #DFE0EB;
+}
+.header .left-area .about-client .Job-type{
+    font-size: 0.9vw;
+    text-transform: uppercase;
+}
+.header .right-area {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.p-wrapper{
+    padding: 20px;
+}
+.cells{
+    position: relative;
+}
+
+.profile{
+    left: 0;
+    width: 30px;
+    height: 30px;
+    background: #A5A6F6;
+    border-radius: 50%;
+    vertical-align: top;
+    color: #fff;
+    display: inline-flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 10px;
+}
+.recieved-chat.rec-append{
+    margin: 0 10px 20px 0;
+}
+.recieved-chat.rec-append .profile{
+    vertical-align: text-bottom;
+    margin-left: 13px;
+}
+.received-msg{
+    display: inline-block;
+    width: 93%;
+    padding: 0 0 0 14px;
+}
+.received-msg p.message{
+    width: 46%;
+    color: #5D5FEF;
+    padding: 9px 10px 10px 12px;
+    border: 1px solid #A5A6F6;
+    border-radius: 10px;
+    font-size: 12px;
+}
+
+.sent-msg .time {
+    padding-top: 7px;
+    text-align: right;
+    display: block;
+}
+
+.time{
+    font-size: 10px;
+    color: #333333;
+}
+.sent-chat{
+    overflow: hidden;
+    margin: 26px 5px 20px;
+}
+.sent-chat .profile{
+    float: right;
+}
+.sent-chat .sent-msg{
+    width: 46%;
+    float: right;
+    overflow: hidden;
+    margin: 0 10px 0 0;
+}
+.sent-msg .message{
+    width: 100%;
+    padding: 9px 10px 10px 12px;
+    background-color:#937DC2;
+    color: #ffffff;
+    font-size: 12px;
+    border-radius: 10px;
+}
+.input-area{
+    position: relative;
+}
+.input-area input{
+    width: 100%;
+    height: 57px;
+    border-radius: 10px;
+    border: 1px solid #A5A6F6;
+    padding-left: 32px;
+    outline: none;
+}
+.input-area  :is(.send-btn, .file, .checked){
+    position: absolute;
+}
+.input-area .send-btn{
+    position: absolute;
+    right: 10%;
+    top: 14%;
+    padding: 10px 7px 5px 10px;
+    background: #5D5FEF;
+    border-radius: 10px;
+}
+.send-btn img{
+    vertical-align:0%;
+}
+.input-area .file{
+    position: absolute;
+    right: 6%;
+    top: 28%;
+}
+.input-area .checked{
+    position: absolute;
+    right: 2%;
+    top: 31%;
+}
+.svg-1{
+    font-size: 30px !important;
+}
+.svg-2{
+    width: 24px
+}
+@media (max-width:1500px) and (min-width:900){
+    .field input{
+        width: 21vw
+    }
+    .linked {
+        width: 94%;
+    }
+}
+@media (min-width:901px){
+    .chatPage li.opened-profile{
+        width: 40%;
+    }
+}
+@media  (max-width: 900px) {
+    .navbar .right-nav{
+        width: 45%;
+    }
+    .chatPage li.opened-profile{
+        width: 11vw;
+    }
+    .opened-profile .avatar3{
+        width: 4vw;
+    }
+    .opened-profile span{
+        font-size: 12px;
+    }
+    .pad-wrapper{
+        flex-wrap: wrap;
+    }
+    .notification-bar{
+        width: 100%;
+        order: 2;
+    }
+    .field input{
+        width: 100%;
+        padding-left: 50px
+    }
+    .header .left-area .about-client .Job-type {
+        font-size: 1.5vw;
+    }
+    .msg-bar .name {
+        font-family: 'Manrope';
+    }
+    .msg-bar .job-type {
+        font-size: 1.6vw;
+    }
+    .mainchat-area{
+        width: 100%;
+    }
+    .input-area .send-btn{
+        right: 16%;
+    }
+    .input-area .file{
+        right: 10%;
+    }
+}
+@media (max-width:500px) {
+    .chatPage .navigation .navbar .left-nav{
+        width: 25%;
+    }
+    .header .left-area .about-client .Job-type{
+        font-size: 2vw;
+    }
+    .received-msg{
+        width: 91%;
+    }
+    .received-msg p.message{
+        width:100%;
+    }
+    .sent-chat .sent-msg{
+        width: 83%;
+    }
+    .chatPage .navigation .navbar .right-nav{
+        width: 65%;
+    }
+    .svg-1{
+        font-size: 24px !important;
+    }
+    .svg-2{
+        font-size: 24px !important;
+    }
+    .chatPage li.opened-profile{
+        width: 21vw;
+    }
+    .opened-profile .avatar3{
+        width: 30px;
+    }
+    .opened-profile span{
+        font-size: 14px;
+    }
+}
+@media (max-width:480px) {
+    .svg-1{
+        margin-top: 7px;
+    }
+    .chatPage li.opened-profile{
+        width: 24vw;
+    }
+}

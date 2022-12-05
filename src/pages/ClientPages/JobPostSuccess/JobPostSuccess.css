@@ -1,0 +1,36 @@
+.jobSuccessContainer {
+  margin-left: auto;
+  margin-right: auto;
+  width: 778px;
+  height: 549px;
+  background: #ffffff;
+  border-radius: 30px;
+}
+
+.jobSuccessContainer img {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.jobSuccessContainer h1 {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 72px;
+  text-align: center;
+  color: #2e2b2b;
+}
+
+.jobSuccessContainer p {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 21px;
+  line-height: 29px;
+  text-align: center;
+  color: #2e2b2b;
+}
+
+.jobSuccessContainer button {
+}

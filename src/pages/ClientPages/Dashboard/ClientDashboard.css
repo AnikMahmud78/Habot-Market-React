@@ -1,0 +1,507 @@
+@import url("https://fonts.googleapis.com/css2?family=Lexend+Deca&family=Markazi+Text&family=Mulish&family=Noto+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lexend+Deca&family=Markazi+Text&family=Noto+Sans&display=swap");
+
+.statusCard {
+  padding: 15px;
+  width: 259px;
+  height: 130px;
+  background: #ffffff;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.dashboardContainer {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: baseline;
+}
+
+.dashboardContainerLeft {
+  width: 60%;
+}
+
+.dashboardText h1 {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 33px;
+  color: #2a3065;
+}
+
+.dashboardText p {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  color: #2a3065;
+}
+
+.statusFlex {
+  display: flex;
+  margin-top: 20px;
+}
+
+.statusCardText h1 {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 32px;
+  line-height: 44px;
+  color: #2a3065;
+}
+
+.statusCardText p {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 22px;
+  color: #c179ba;
+}
+
+.statusCardContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+/* .statusCardImg {
+
+} */
+
+.jobPostedBox {
+  margin-bottom: 10px;
+  text-align: start;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: auto;
+  height: 120px;
+  background: #ffffff;
+  box-shadow: 4px 1px 4px 1px rgba(133, 132, 127, 0.25);
+  border-radius: 30px;
+}
+
+.jobPostedHeader h1 {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 25px;
+  color: #000000;
+}
+
+.jobPostedHeader h2 {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 20px;
+  color: #34a853;
+}
+
+.jobPostedHeader p {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  color: #929292;
+  margin-bottom: 8px;
+}
+
+.jobPostedHeader p span {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 25px;
+  color: #000000;
+}
+
+.transactionBox {
+  width: 450px;
+  height: 600px;
+  background: #ffffff;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+}
+
+.transactionBox h2 {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 25px;
+  color: #2a3065;
+  margin-top: 25px;
+  margin-bottom: 20px;
+}
+
+.transactionDetailsImg {
+  width: 30px;
+  height: 30px;
+  margin-right: 25px;
+}
+
+.transactionDetails {
+  width: 406px;
+  height: 86px;
+  background: #fbf8ff;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.paymentHistory h1 {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 30px;
+  color: #2a3065;
+}
+
+.transactionDetailsText {
+  text-align: center;
+}
+
+.transactionSuccess {
+  width: 94.59px;
+  height: 29.22px;
+  background: #34a853;
+  border-radius: 10px;
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  color: #ffffff;
+}
+
+.transactionFailed {
+  width: 94.59px;
+  height: 29.22px;
+  background: #c179ba;
+  border-radius: 10px;
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  color: #ffffff;
+}
+
+.transactionDetailsText h5 {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 19px;
+  letter-spacing: -0.02em;
+  color: #878787;
+  padding-top: 10px;
+}
+
+.transactionDetailsText p {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+  letter-spacing: -0.02em;
+  color: #878787;
+}
+
+.transactionDetailsText h6 {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+  letter-spacing: -0.02em;
+  color: #000000;
+}
+
+.dropdown::after {
+  display: none;
+}
+
+.dropdownMenu {
+  inset: 0px auto auto -135px !important;
+}
+
+.successTransaction {
+  width: 94.59px;
+  height: 29.22px;
+  background: #34a853;
+  border-radius: 10px;
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 27px;
+  color: #ffffff;
+}
+
+.failedTransaction {
+  width: 94.59px;
+  height: 29.22px;
+  background: #c179ba;
+  border-radius: 10px;
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 27px;
+  color: #ffffff;
+}
+
+@media only screen and (min-width: 1440px) {
+  .paymentHistory {
+    width: 30%;
+  }
+
+  .transactionDetails {
+    width: 95%;
+  }
+
+  .transactionBox {
+    width: 95%;
+  }
+}
+
+@media only screen and (max-width: 1280px) {
+  .statusFlex {
+    width: 500px;
+  }
+
+  .statusCardText h1 {
+    font-size: 20px;
+    line-height: 44px;
+  }
+
+  .statusCardText p {
+    font-size: 13px;
+    line-height: 20px;
+  }
+
+  .w500 {
+    width: 500px;
+  }
+
+  .jobPostedBox {
+    width: 95%;
+  }
+
+  .dashboardContainer {
+    margin: 30px;
+  }
+}
+
+@media (max-width: 1025px) {
+  .statusFlex {
+    width: 500px;
+  }
+
+  .statusCardText h1 {
+    font-size: 20px;
+    line-height: 44px;
+  }
+
+  .statusCardText p {
+    font-size: 13px;
+    line-height: 20px;
+  }
+
+  .w500 {
+    width: 500px;
+  }
+
+  .jobPostedBox {
+    width: 500px;
+  }
+}
+
+@media only screen and (max-width: 990px) {
+  .dashboardContainerLeft {
+    margin: 20px;
+    width: auto;
+  }
+
+  .transactionDetails {
+    margin: 10px;
+    width: auto;
+  }
+
+  .dashboardText h1 {
+    margin-left: 10px;
+  }
+
+  .dashboardText p {
+    margin-left: 10px;
+  }
+
+  .paymentHistory h1 {
+    margin-top: 28px;
+    font-size: 22px;
+    text-align: start;
+    margin-left: 43px;
+  }
+
+  .transactionBox {
+    width: 80%;
+    margin-left: 43px;
+  }
+
+  .jobPostedBox {
+    width: auto;
+    margin: 10px;
+  }
+
+  .w500 {
+    width: 95%;
+  }
+
+  .statusFlex {
+    margin-left: 10px;
+    width: auto;
+  }
+
+  .dashboardContainer {
+    display: block;
+    margin: 0px;
+  }
+
+  .statusCard {
+    width: auto;
+    height: auto;
+  }
+
+  .statusCardText h1 {
+    font-size: 25px;
+    line-height: 30px;
+  }
+
+  .statusCardText p {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .jobPostedHeader h2 {
+    padding-left: 10px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .dashboardText h1 {
+    font-size: 20px;
+    line-height: 27px;
+  }
+
+  .dashboardText p {
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  .paymentHistory h1 {
+    margin-left: 20px;
+    font-size: 20px;
+    margin-top: 15px;
+  }
+
+  .transactionBox {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .dashboardContainerLeft {
+    margin: 0px;
+    width: auto;
+  }
+
+  .statusFlex {
+    margin-left: 0px;
+    width: auto;
+  }
+
+  .successTransaction {
+    width: 50px;
+    height: 21.22px;
+    font-size: 10px;
+    line-height: 21px;
+  }
+
+  .failedTransaction {
+    width: 50px;
+    height: 21.22px;
+    font-size: 10px;
+    line-height: 21px;
+  }
+
+  .jobPostedHeader h1 {
+    font-size: 13px;
+    line-height: 20px;
+  }
+
+  .jobPostedHeader h2 {
+    font-size: 13px;
+    line-height: 20px;
+    padding-left: 10px;
+  }
+
+  .jobPostedHeader p {
+    font-size: 13px;
+    line-height: 20px;
+  }
+
+  .jobPostedHeader p span {
+    font-size: 13px;
+    line-height: 20px;
+  }
+
+  .statusCard {
+    padding: 10px;
+    width: 100%;
+  }
+
+  .dashboardContainer {
+    padding: 0px;
+  }
+
+  .statusCardImg {
+    display: none;
+  }
+
+  .statusCardText h1 {
+    text-align: center;
+    font-size: 20px;
+    line-height: 25px;
+  }
+
+  .statusCardText p {
+    text-align: center;
+    font-size: 15px;
+    line-height: 20px;
+    margin: 0px;
+  }
+
+  .transactionBox {
+    width: 90%;
+  }
+
+  .transactionDetails {
+    width: 90%;
+    height: 86px;
+  }
+}

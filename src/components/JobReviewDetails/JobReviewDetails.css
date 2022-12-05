@@ -1,0 +1,53 @@
+.JobReviewContainer {
+  padding: 40px 50px 40px 60px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  width: 90%;
+  height: auto;
+  background: #f9f9f9;
+  border: 1px solid #dbdbdb;
+  border-radius: 10px;
+}
+
+.JobReviewContainer h1 {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 21px;
+  line-height: 72px;
+  color: #000000;
+}
+
+.JobReviewDetails h1 {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 160%;
+  display: flex;
+  letter-spacing: 0.5px;
+  color: #2f2f2f;
+}
+
+.JobReviewDetails p {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 25px;
+  color: #000000;
+  opacity: 0.5;
+}
+
+@media (max-width: 1024px) {
+}
+
+@media (max-width: 768px) {
+}
+
+@media (max-width: 600px) {
+  .JobReviewContainer {
+    padding: 10px 10px 10px 20px;
+  }
+}
