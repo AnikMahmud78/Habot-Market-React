@@ -19,6 +19,8 @@ import JobPageDone from "../components/Dashboard/JobPageDone";
 import Message from "../components/Dashboard/Message";
 import MiddleContent from "../pages/VendorPages/Middle-main";
 import NotificationPage from "../pages/VendorPages/Notification";
+import ForgotPassword from "../pages/ClientPages/ForgotPassword/ForgotPassword";
+import ResetPassword from "../pages/ClientPages/ResetPassword/ResetPassword";
 
 export const router = createBrowserRouter([
   {
@@ -101,5 +103,13 @@ export const router = createBrowserRouter([
   {
     path: "/notification",
     element: <NotificationPage />,
+  },
+  {
+    path: "/forgot-password",
+    element: <ForgotPassword />,
+  },
+  {
+    path: "/reset-password",
+    element: <ResetPassword />,
   },
 ]);
