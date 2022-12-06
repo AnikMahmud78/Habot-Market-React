@@ -22,8 +22,8 @@ const LoginPage = () => {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
-        Cookies.set("accessToken", data.accessToken);
-        Cookies.set("refreshToken", data.refreshToken);
+        Cookies.set("access", data.access);
+        Cookies.set("refresh", data.refresh);
         // alert(Object.values(data)[0]);
       })
       .catch((err) => {
