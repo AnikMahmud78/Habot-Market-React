@@ -1,7 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
+import { useEffect } from "react";
 import File from "./img/filepng.png";
 
 const JobHeadline = () => {
+  const [jobList, setJobList] = useState([]);
+  useEffect(() => {
+    const fetchJobList = async () => {
+      const res = await fetch("https://habot.io/jobs/posted-jobs-list/");
+      const data = await res.json();
+      setJobList(data);
+    };
+    fetchJobList();
+  }, []);
+  console.log(jobList);
   return (
     <>
       <div className="job-info-container">

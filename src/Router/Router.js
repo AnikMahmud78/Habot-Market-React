@@ -21,6 +21,7 @@ import MiddleContent from "../pages/VendorPages/Middle-main";
 import NotificationPage from "../pages/VendorPages/Notification";
 import ForgotPassword from "../pages/ClientPages/ForgotPassword/ForgotPassword";
 import ResetPassword from "../pages/ClientPages/ResetPassword/ResetPassword";
+import OTPPage from "../pages/ClientPages/OTPVarification/OTPPage";
 
 export const router = createBrowserRouter([
   {
@@ -111,5 +112,9 @@ export const router = createBrowserRouter([
   {
     path: "/reset-password",
     element: <ResetPassword />,
+  },
+  {
+    path: "/otp-page",
+    element: <OTPPage />,
   },
 ]);
