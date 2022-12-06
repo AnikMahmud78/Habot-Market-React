@@ -30,6 +30,6 @@ code {
   border: 1px solid #8080809e;
 }
 a {
-  color: var(--bs-link-color);
+  color: inherit !important;
   text-decoration: none !important;
 }
