@@ -1,6 +1,33 @@
 import React from "react";
+import { useForm } from "react-hook-form";
 
 const ForgotPassword = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({});
+
+  const forgotPasswordHandler = (data) => {
+    fetch(
+      `${process.env.REACT_APP_BACKEND}${process.env.REACT_APP_FORGOT_PASSWORD}`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email: data.email }),
+      }
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        alert(Object.values(data)[0]);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   return (
     <div>
       <div class="container mt-5 ">
@@ -16,11 +43,8 @@ const ForgotPassword = () => {
                   <p>You can reset your password here.</p>
                   <div class="panel-body">
                     <form
-                      id=""
-                      role="form"
+                      onSubmit={handleSubmit(forgotPasswordHandler)}
                       autocomplete="off"
-                      class=""
-                      method="post"
                     >
                       <div class="form-group">
                         <div class="input-group">
@@ -29,11 +53,10 @@ const ForgotPassword = () => {
                           </span>
                           <input
                             id="email"
-                            name="email"
                             placeholder="email address"
                             class="form-control"
                             type="email"
-                            required
+                            {...register("email", { required: true })}
                           />
                         </div>
                       </div>
