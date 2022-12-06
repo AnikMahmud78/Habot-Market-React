@@ -1,11 +1,39 @@
 import React from "react";
+import { useForm } from "react-hook-form";
+import Cookies from "js-cookie";
 import { Link } from "react-router-dom";
 import "./LoginPage.css";
 
 const LoginPage = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({});
+
+  const signinHandler = (data) => {
+    fetch(`${process.env.REACT_APP_BACKEND}${process.env.REACT_APP_LOGIN}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email: data.email, password: data.password }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        Cookies.set("access", data.access);
+        Cookies.set("refresh", data.refresh);
+        // alert(Object.values(data)[0]);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   return (
     <div>
-      <div className="loginForm">
+      <form onSubmit={handleSubmit(signinHandler)} className="loginForm">
         <div className="loginFormFirstContainer">
           <img
             className="img-fluid"
@@ -70,11 +98,17 @@ const LoginPage = () => {
             <div className="break"></div>
           </div>
           <div className="loginInput">
-            <input className="signin-email" type="text" placeholder="Email" />
+            <input
+              className="signin-email"
+              type="text"
+              placeholder="Email"
+              {...register("email", { required: true })}
+            />
             <input
               className="signin-password"
-              type="text"
+              type="password"
               placeholder="Password"
+              {...register("password", { required: true })}
             />
           </div>
           <div className="rememberForgot">
@@ -99,7 +133,9 @@ const LoginPage = () => {
             </Link>
           </div>
           <div className="loginBtnSecondary">
-            <button className="signin-btn-submit">Log in</button>
+            <button type="submit" className="signin-btn-submit">
+              Log in
+            </button>
           </div>
           <div className="signUpFree">
             <Link to="client-signup">Don’t have an account?</Link>
@@ -108,7 +144,7 @@ const LoginPage = () => {
             </Link>
           </div>
         </div>
-      </div>
+      </form>
     </div>
   );
 };

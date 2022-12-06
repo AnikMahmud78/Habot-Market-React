@@ -1,9 +1,42 @@
 import React from "react";
+import { useForm } from "react-hook-form";
 
 const ResetPassword = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({});
+
+  const resetPasswordHandler = (data) => {
+    fetch(
+      `${process.env.REACT_APP_BACKEND}${process.env.REACT_APP_RESET_PASSWORD}`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          new_password: data.new_password,
+          re_new_password: data.re_new_password,
+        }),
+      }
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        alert(Object.values(data)[0]);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   return (
     <div>
-      <div className="container border mt-4 ">
+      <form
+        onSubmit={handleSubmit(resetPasswordHandler)}
+        className="container border mt-4 "
+      >
         <h3 className="text-center">
           <i class="fa fa-lock fa-4x"></i>
         </h3>
@@ -17,7 +50,7 @@ const ResetPassword = () => {
             className="form-control"
             type="password"
             placeholder="New Password"
-            required
+            {...register("new_password", { required: true })}
           />
           <p>
             Confirm Password<span className="text-red-600">*</span>
@@ -26,7 +59,7 @@ const ResetPassword = () => {
             className="form-control"
             type="password"
             placeholder="Confirm Password"
-            required
+            {...register("re_new_password", { required: true })}
           />
           <input
             name="recover-submit"
@@ -35,7 +68,7 @@ const ResetPassword = () => {
             type="submit"
           />
         </div>
-      </div>
+      </form>
     </div>
   );
 };

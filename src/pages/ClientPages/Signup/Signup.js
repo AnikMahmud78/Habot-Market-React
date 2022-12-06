@@ -1,11 +1,53 @@
 import React from "react";
+import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./Signup.css";
 
 const Signup = () => {
+  const navigate = useNavigate("");
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({});
+
+  const signupHandler = (data) => {
+    fetch(`https://habot.io/accounts/sign-up/`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        full_name: data.full_name,
+        email: data.email,
+        phone_number: data.phone_number,
+        password: data.password,
+        password2: data.password,
+        is_client: true,
+        is_vendor: false,
+      }),
+    })
+      .then((response) => {
+        console.log(response.json());
+        if (response.ok) {
+          alert("Success");
+          navigate(`/otp-page`);
+        }
+      })
+      // .then((data) => {
+      //   console.log(data);
+      //   alert(Object.values(data)[0]);
+      // })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   return (
     <div>
-      <div>
+      <form onSubmit={handleSubmit(signupHandler)}>
         <div className="loginForm">
           <div className="loginFormFirstContainer">
             <img
@@ -23,7 +65,10 @@ const Signup = () => {
           <div className="loginFormSecondContainer">
             <h1>Welcome to Habot !</h1>
             <p>Welcome back! Please enter your details.</p>
-            <button className="d-flex mx-auto loginFormSecondContainerBtn">
+            <button
+              type="button"
+              className="d-flex mx-auto loginFormSecondContainerBtn"
+            >
               <svg
                 className="me-2"
                 width="25"
@@ -71,10 +116,26 @@ const Signup = () => {
               <div className="break"></div>
             </div>
             <div className="loginInput">
-              <input type="text" placeholder="Full Name" />
-              <input type="text" placeholder="Email" />
-              <input type="text" placeholder="Phone Number" />
-              <input type="text" placeholder="Password" />
+              <input
+                type="text"
+                placeholder="Full Name"
+                {...register("full_name", { required: true })}
+              />
+              <input
+                type="email"
+                placeholder="Email"
+                {...register("email", { required: true })}
+              />
+              <input
+                type="text"
+                placeholder="Phone Number"
+                {...register("phone_number", { required: true })}
+              />
+              <input
+                type="password"
+                placeholder="Password"
+                {...register("password", { required: true })}
+              />
             </div>
             {/* <div className="rememberForgot">
               <div>
@@ -98,7 +159,7 @@ const Signup = () => {
               </Link>
             </div> */}
             <div className="loginBtnSecondary">
-              <button>Sign up</button>
+              <button type="submit">Sign up</button>
             </div>
             <div className="signUpFree">
               <Link to="/client-login">Already have an account?</Link>
@@ -111,7 +172,7 @@ const Signup = () => {
             </div>
           </div>
         </div>
-      </div>
+      </form>
     </div>
   );
 };
