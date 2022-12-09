@@ -1,31 +1,37 @@
+import axios from "axios";
 import React, { useState } from "react";
 import { useEffect } from "react";
 import File from "./img/filepng.png";
 
 const JobHeadline = () => {
-  const [jobList, setJobList] = useState([]);
+  const [vendorProfile, setVendorProfile] = useState();
   useEffect(() => {
-    const fetchJobList = async () => {
-      const res = await fetch("https://habot.io/jobs/posted-jobs-list/");
-      const data = await res.json();
-      setJobList(data);
-    };
-    fetchJobList();
+    axios.get(`https://habot.io/jobs/assigned-job/`).then(
+      (response) => {
+        setVendorProfile(response.data);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }, []);
-  console.log(jobList);
+
+  // console.log(vendorProfile?.results[0]);
   return (
     <>
       <div className="job-info-container">
         <div className="job-info-header">
-          <div className="job-tile">Job Headline</div>
-          <div className="mute-text">client name</div>
+          <div className="job-tile">
+            {vendorProfile?.results[0].category_info.name}
+          </div>
+          <div className="mute-text">
+            {vendorProfile?.results[0].created_by_info.full_name}
+          </div>
         </div>
         <div className="job-info">
-          <div className="info-title">Subject Title</div>
+          <div className="info-title">{vendorProfile?.results[0].name}</div>
           <div className="job-desc">
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-            accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-            quae ab illo inventore veritatis et quasi architecto
+            {vendorProfile?.results[0].description}
           </div>
         </div>
         <div className="document-file">

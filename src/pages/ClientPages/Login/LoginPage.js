@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import Cookies from "js-cookie";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./LoginPage.css";
+// import { signInWithPopup } from "firebase/auth";
+import { signInWithSocial } from "../../../firebase/firbase";
 
 const LoginPage = () => {
+  const [token, setToken] = useState();
+
+  const Navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -21,19 +26,38 @@ const LoginPage = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
+        setToken(data);
+
+        const user = {
+          is_vendor: data.is_vendor,
+          is_client: data.is_client,
+        };
+        console.log(user);
+        localStorage.setItem("user", JSON.stringify(user));
+
         Cookies.set("access", data.access);
         Cookies.set("refresh", data.refresh);
-        // alert(Object.values(data)[0]);
+
+        if (data.is_vendor) {
+          // console.log("abc");
+          Navigate("/vendor-profile-dashboard");
+        }
+        if (data.is_client) {
+          Navigate("/profile-dashboard");
+        }
       })
+
       .catch((err) => {
         console.log(err);
       });
   };
+  console.log(token);
+
+  // const googlePopUpHandler =
 
   return (
     <div>
-      <form onSubmit={handleSubmit(signinHandler)} className="loginForm">
+      <div className="loginForm">
         <div className="loginFormFirstContainer">
           <img
             className="img-fluid"
@@ -50,7 +74,50 @@ const LoginPage = () => {
         <div className="loginFormSecondContainer">
           <h1>Welcome to Habot !</h1>
           <p>Welcome back! Please enter your details.</p>
-          <button className="d-flex mx-auto loginFormSecondContainerBtn">
+          <button
+            onClick={async () => {
+              const user = await signInWithSocial();
+
+              console.log(user);
+              fetch(
+                `${process.env.REACT_APP_BACKEND}${process.env.REACT_APP_LOGIN}`,
+                {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                  body: JSON.stringify({ email: user.email }),
+                }
+              )
+                .then((response) => response.json())
+                .then((data) => {
+                  setToken(data);
+
+                  const user = {
+                    ...data.is_vendor,
+                    ...data.is_client,
+                  };
+
+                  localStorage.setItem("user", user);
+
+                  Cookies.set("access", data.access);
+                  Cookies.set("refresh", data.refresh);
+
+                  if (data.is_vendor) {
+                    // console.log("abc");
+                    Navigate("/vendor-profile-dashboard");
+                  }
+                  if (data.is_client) {
+                    Navigate("/profile-dashboard");
+                  }
+                })
+
+                .catch((err) => {
+                  console.log(err);
+                });
+            }}
+            className="d-flex mx-auto loginFormSecondContainerBtn"
+          >
             <svg
               className="me-2"
               width="25"
@@ -90,61 +157,66 @@ const LoginPage = () => {
             </svg>
             Log in with Google
           </button>
-          <div className="d-flex align-items-center justify-content-center mt-4">
-            <div className="break"></div>
-            <div>
-              <h3 className=" mx-2 breakText">or</h3>
-            </div>
-            <div className="break"></div>
-          </div>
-          <div className="loginInput">
-            <input
-              className="signin-email"
-              type="text"
-              placeholder="Email"
-              {...register("email", { required: true })}
-            />
-            <input
-              className="signin-password"
-              type="password"
-              placeholder="Password"
-              {...register("password", { required: true })}
-            />
-          </div>
-          <div className="rememberForgot">
-            <div>
-              <div className="form-check">
-                <input
-                  className="form-check-input"
-                  type="checkbox"
-                  value=""
-                  id="flexCheckDefault"
-                />
-                <label className="form-check-label" for="flexCheckDefault">
-                  Remember for 30 days
-                </label>
+          <form onSubmit={handleSubmit(signinHandler)}>
+            <div className="d-flex align-items-center justify-content-center mt-4">
+              <div className="break"></div>
+              <div>
+                <h3 className=" mx-2 breakText">or</h3>
               </div>
+              <div className="break"></div>
             </div>
-            <Link
-              to="/forgot-password "
-              className="text-decoration-underline ms-2 forgotPassword"
-            >
-              Forgot Password
-            </Link>
-          </div>
-          <div className="loginBtnSecondary">
-            <button type="submit" className="signin-btn-submit">
-              Log in
-            </button>
-          </div>
-          <div className="signUpFree">
-            <Link to="client-signup">Don’t have an account?</Link>
-            <Link to="client-signup" className="text-decoration-underline ms-2">
-              Sign up for free
-            </Link>
-          </div>
+            <div className="loginInput">
+              <input
+                className="signin-email"
+                type="text"
+                placeholder="Email"
+                {...register("email", { required: true })}
+              />
+              <input
+                className="signin-password"
+                type="password"
+                placeholder="Password"
+                {...register("password", { required: true })}
+              />
+            </div>
+            <div className="rememberForgot">
+              <div>
+                <div className="form-check">
+                  <input
+                    className="form-check-input"
+                    type="checkbox"
+                    value=""
+                    id="flexCheckDefault"
+                  />
+                  <label className="form-check-label" for="flexCheckDefault">
+                    Remember for 30 days
+                  </label>
+                </div>
+              </div>
+              <Link
+                to="/forgot-password "
+                className="text-decoration-underline ms-2 forgotPassword"
+              >
+                Forgot Password
+              </Link>
+            </div>
+            <div className="loginBtnSecondary">
+              <button type="submit" className="signin-btn-submit">
+                Log in
+              </button>
+            </div>
+            <div className="signUpFree">
+              <Link to="client-signup">Don’t have an account?</Link>
+              <Link
+                to="client-signup"
+                className="text-decoration-underline ms-2"
+              >
+                Sign up for free
+              </Link>
+            </div>
+          </form>
         </div>
-      </form>
+      </div>
     </div>
   );
 };

@@ -55,9 +55,13 @@ const LandingNav = () => {
                 </svg>
                 Download App
               </Link>
-              <Link to="/client-login">
-                <button className="loginBtn">Login / Sign up</button>
-              </Link>
+              {localStorage.getItem("user") ? (
+                <button className="loginBtn">Log out</button>
+              ) : (
+                <Link to="/client-login">
+                  <button className="loginBtn">Log in / Sign up</button>
+                </Link>
+              )}
             </Form>
           </Navbar.Collapse>
         </Container>

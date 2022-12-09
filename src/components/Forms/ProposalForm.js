@@ -1,10 +1,25 @@
-import React, { useState } from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import PayButton from "../Global/PayButton";
 
 export default function ProposalForm() {
+  const [vendorProposal, setVendorProposal] = useState();
   const [files, setFiles] = useState([]);
-
+  useEffect(() => {
+    console.log(vendorProposal);
+    axios
+      .post(`https://habot.io/jobs/apply-job/${vendorProposal?.job_post}`)
+      .then(
+        (response) => {
+          setVendorProposal(response.data);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+  }, []);
+  console.log(vendorProposal);
   const {
     register,
     handleSubmit,
@@ -12,7 +27,8 @@ export default function ProposalForm() {
   } = useForm();
 
   const formSubmitHandler = (data) => {
-    console.log(data);
+    // console.log(data);
+    // console.log(data);
   };
 
   const handleClick = (event) => {
