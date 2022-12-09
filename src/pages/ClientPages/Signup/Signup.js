@@ -31,9 +31,10 @@ const Signup = () => {
     })
       .then((response) => {
         console.log(response.json());
+
         if (response.ok) {
           alert("Success");
-          navigate(`/otp-page`);
+          navigate(`/otp-page/${data.email}`);
         }
       })
       // .then((data) => {

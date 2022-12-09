@@ -5,10 +5,12 @@ import Avatar from "./img/Initials.png";
 import Dots from "./img/Vector (1).png";
 import "/node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "/node_modules/bootstrap/dist/js/bootstrap.bundle.min";
+import axios from "axios";
 const NotificationPage = () => {
   const [first, setfirst] = useState(true);
   const [second, setsecond] = useState(false);
   const [third, setthird] = useState(false);
+  const [notifications, setNotifications] = useState();
 
   const firstClick = () => {
     setfirst(true);
@@ -41,6 +43,16 @@ const NotificationPage = () => {
     }
     fetchData();
   }, []);
+
+  useEffect(()=>{
+    axios.get('https://habot.io/jobs/notifications/')
+    .then(response => {
+      setNotifications(response.data)
+    }, error => {
+      console.log(error);
+    });
+  },[])
+  console.log(notifications);
 
   return (
     <>

@@ -1,15 +1,33 @@
 import "./style-file/style.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import VendorContainer from "./Vendor-identity";
 import SideNotificationBar from "./Side-norificationBar";
 import JobHeadline from "./Job-headline";
 import Transaction from "./Transaction";
 import filterImg from "./img/filter 1.png";
 import React from "react";
+import axios from "axios";
+// import { useContext } from "react";
+// import { AuthContext } from "../../AuthContext/AuthContextProvider";
+import ClientNav from "../../components/ClientNavbar/ClientNav";
 
 const MiddleContent = () => {
+  // const data = useContext(AuthContext);
   const [clicked, setclicked] = useState(false);
   const [reclick, setreclick] = useState(true);
+  const [vendorProfile, setVendorProfile] = useState();
+  // console.log(data);
+  useEffect(() => {
+    axios.get(`https://habot.io/accounts/vendor-profile/`).then(
+      (response) => {
+        setVendorProfile(response.data);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }, []);
+  // console.log(vendorProfile);
 
   const clickEvent = () => {
     setclicked(true);
@@ -21,11 +39,13 @@ const MiddleContent = () => {
   };
   return (
     <>
+      <ClientNav />
       <div className="parent_content">
         <div className="pad-wrapper">
           <div className="content">
             <div className="Main_card">
               <VendorContainer
+                vendorProfile={vendorProfile}
                 click={clickEvent}
                 clickBack={clickBack}
                 clicked={clicked}

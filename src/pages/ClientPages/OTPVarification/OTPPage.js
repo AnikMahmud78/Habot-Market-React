@@ -1,7 +1,10 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { useNavigate, useParams } from "react-router-dom";
 
 const OTPPage = () => {
+  const navigate = useNavigate("");
+  const { email } = useParams();
   const {
     register,
     handleSubmit,
@@ -16,13 +19,20 @@ const OTPPage = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ otp: data.otp }),
+        body: JSON.stringify({
+          otp_token: data.otp,
+          email: email,
+        }),
       }
     )
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
         // alert(Object.values(data)[0]);
+        if (data.message) {
+          alert(`${data.message}`);
+          navigate(`/client-login`);
+        }
       })
       .catch((err) => {
         console.log(err);
