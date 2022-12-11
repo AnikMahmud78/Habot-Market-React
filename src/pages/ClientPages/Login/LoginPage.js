@@ -4,7 +4,7 @@ import Cookies from "js-cookie";
 import { Link, useNavigate } from "react-router-dom";
 import "./LoginPage.css";
 // import { signInWithPopup } from "firebase/auth";
-import { signInWithSocial } from "../../../firebase/firbase";
+// import { signInWithSocial } from "../../../firebase/firbase";
 
 const LoginPage = () => {
   const [token, setToken] = useState();
@@ -53,7 +53,49 @@ const LoginPage = () => {
   };
   console.log(token);
 
-  // const googlePopUpHandler =
+  // const googlePopUpHandler ={
+  //   async () => {
+  //     const user = await signInWithSocial();
+
+  //     console.log(user);
+  //     fetch(
+  //       `${process.env.REACT_APP_BACKEND}${process.env.REACT_APP_LOGIN}`,
+  //       {
+  //         method: "POST",
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //         },
+  //         body: JSON.stringify({ email: user.email }),
+  //       }
+  //     )
+  //       .then((response) => response.json())
+  //       .then((data) => {
+  //         setToken(data);
+
+  //         const user = {
+  //           ...data.is_vendor,
+  //           ...data.is_client,
+  //         };
+
+  //         localStorage.setItem("user", user);
+
+  //         Cookies.set("access", data.access);
+  //         Cookies.set("refresh", data.refresh);
+
+  //         if (data.is_vendor) {
+  //           // console.log("abc");
+  //           Navigate("/vendor-profile-dashboard");
+  //         }
+  //         if (data.is_client) {
+  //           Navigate("/profile-dashboard");
+  //         }
+  //       })
+
+  //       .catch((err) => {
+  //         console.log(err);
+  //       });
+  //   }
+  // }
 
   return (
     <div>
@@ -75,47 +117,7 @@ const LoginPage = () => {
           <h1>Welcome to Habot !</h1>
           <p>Welcome back! Please enter your details.</p>
           <button
-            onClick={async () => {
-              const user = await signInWithSocial();
-
-              console.log(user);
-              fetch(
-                `${process.env.REACT_APP_BACKEND}${process.env.REACT_APP_LOGIN}`,
-                {
-                  method: "POST",
-                  headers: {
-                    "Content-Type": "application/json",
-                  },
-                  body: JSON.stringify({ email: user.email }),
-                }
-              )
-                .then((response) => response.json())
-                .then((data) => {
-                  setToken(data);
-
-                  const user = {
-                    ...data.is_vendor,
-                    ...data.is_client,
-                  };
-
-                  localStorage.setItem("user", user);
-
-                  Cookies.set("access", data.access);
-                  Cookies.set("refresh", data.refresh);
-
-                  if (data.is_vendor) {
-                    // console.log("abc");
-                    Navigate("/vendor-profile-dashboard");
-                  }
-                  if (data.is_client) {
-                    Navigate("/profile-dashboard");
-                  }
-                })
-
-                .catch((err) => {
-                  console.log(err);
-                });
-            }}
+            // onClick={}
             className="d-flex mx-auto loginFormSecondContainerBtn"
           >
             <svg

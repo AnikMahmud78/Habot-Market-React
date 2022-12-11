@@ -1,3 +1,5 @@
+import axios from "axios";
+import Cookies from "js-cookie";
 import React from "react";
 import { Container, Form, Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
@@ -5,6 +7,19 @@ import { Link } from "react-router-dom";
 import "./LandingNav.css";
 
 const LandingNav = () => {
+  const handleLogout = () => {
+    const token = Cookies.get("refresh");
+
+    const obj = {
+      refresh_token: token,
+    };
+    console.log(obj);
+    axios
+      .post("https://habot.io/accounts/logout", obj)
+      .then((response) => console.log(response.data))
+      .catch((err) => console.log(err));
+  };
+
   return (
     <div>
       <Navbar expand="lg" className="customNavLanding" id="clientNav">
@@ -30,9 +45,9 @@ const LandingNav = () => {
               {/* <Link to="" className="navLink">
                 How it works ?
               </Link> */}
-              {/* <Link to="#becamePartner" className="navLink">
-                Become a partner
-              </Link> */}
+              <Link to="#becamePartner" className="navLink">
+                Dashboard
+              </Link>
               <a className="navLink" href="#becamePartner">
                 Become a partner
               </a>
@@ -55,14 +70,16 @@ const LandingNav = () => {
                 </svg>
                 Download App
               </Link>
-              {localStorage.getItem("user") ? (
-                <button className="loginBtn">Log out</button>
-              ) : (
-                <Link to="/client-login">
-                  <button className="loginBtn">Log in / Sign up</button>
-                </Link>
-              )}
             </Form>
+            {localStorage.getItem("user") ? (
+              <button onClick={handleLogout} className="loginBtn">
+                Log out
+              </button>
+            ) : (
+              <Link to="/client-login">
+                <button className="loginBtn">Log in / Sign up</button>
+              </Link>
+            )}
           </Navbar.Collapse>
         </Container>
       </Navbar>
