@@ -19,14 +19,15 @@ const LandingNav = () => {
       .then((response) => console.log(response.data))
       .catch((err) => console.log(err));
   };
-
+  const loggedUser = JSON.parse(localStorage.getItem("user"));
+  console.log(loggedUser?.is_vendor);
   return (
     <div>
       <Navbar expand="lg" className="customNavLanding" id="clientNav">
         <Container fluid>
           <div className="landingLogo ">
             {/* <h4>HABOT</h4> */}
-            <Link>
+            <Link to="/">
               <img
                 className=""
                 src="https://i.ibb.co/3NBR2Qy/logo-transparent-white-2.png"
@@ -41,13 +42,22 @@ const LandingNav = () => {
               style={{ maxHeight: "150px" }}
               navbarScroll
             ></Nav>
-            <Form className="navFlexLanding">
+            <div className="navFlexLanding">
               {/* <Link to="" className="navLink">
                 How it works ?
               </Link> */}
-              <Link to="#becamePartner" className="navLink">
-                Dashboard
-              </Link>
+              {localStorage.getItem("user") && (
+                <Link
+                  to={
+                    loggedUser?.is_vendor
+                      ? "./vendor-profile-dashboard"
+                      : "./profile-dashboard"
+                  }
+                  className="navLink"
+                >
+                  Dashboard
+                </Link>
+              )}
               <a className="navLink" href="#becamePartner">
                 Become a partner
               </a>
@@ -70,7 +80,7 @@ const LandingNav = () => {
                 </svg>
                 Download App
               </Link>
-            </Form>
+            </div>
             {localStorage.getItem("user") ? (
               <button onClick={handleLogout} className="loginBtn">
                 Log out

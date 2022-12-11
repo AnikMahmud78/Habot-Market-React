@@ -15,7 +15,7 @@ const ClientNav = () => {
       <Navbar sticky="top" className="customNav" expand="lg" id="clientNav">
         <div className="landingLogo ">
           {/* <h4>HABOT</h4> */}
-          <Link>
+          <Link to="/">
             <img
               className=""
               src="https://i.ibb.co/3NBR2Qy/logo-transparent-white-2.png"

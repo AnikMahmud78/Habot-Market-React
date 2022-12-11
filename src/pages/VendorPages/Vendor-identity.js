@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import React from "react";
 const VendorContainer = (props) => {
   // console.log(props?.vendorProfile);
@@ -35,7 +35,9 @@ const VendorContainer = (props) => {
                 <span>Messages</span>
               </NavLink>
             </button>
-            <button className="Btn active">Apply Jobs</button>
+            <Link to="/proposal">
+              <button className="Btn active">Apply Jobs</button>
+            </Link>
           </div>
         </div>
         <div className="links">

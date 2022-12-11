@@ -86,7 +86,13 @@ export const router = createBrowserRouter([
   },
   {
     path: "/proposal",
-    element: <Proposal />,
+    element: (
+      <PrivateRoute>
+        <ProtectedRoute is_client={false}>
+          <Proposal />
+        </ProtectedRoute>
+      </PrivateRoute>
+    ),
   },
   {
     path: "/profile-dashboard",
