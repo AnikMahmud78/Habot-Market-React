@@ -1,39 +1,48 @@
 import React from "react";
-import { useForm } from "react-hook-form";
-import Cookies from "js-cookie";
 import { Link } from "react-router-dom";
 import "./LoginPage.css";
 
 const LoginPage = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({});
-
-  const signinHandler = (data) => {
-    fetch(`${process.env.REACT_APP_BACKEND}${process.env.REACT_APP_LOGIN}`, {
+  const form = {
+    email: document.querySelector("#signin-email"),
+    password: document.querySelector("#signin-password"),
+    submit: document.querySelector("#signin-btn-submit"),
+    messages: document.getElementById("form-messages"),
+  };
+  let button = form.submit.addEventListener("click", (e) => {
+    e.preventDefault();
+    const login = "https://ffcc-app.herokuapp.com/user/login";
+    fetch(login, {
       method: "POST",
       headers: {
+        Accept: "application/json, text/plain, /",
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ email: data.email, password: data.password }),
+      body: JSON.stringify({
+        email: form.email.value,
+        password: form.password.value,
+      }),
     })
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
-        Cookies.set("access", data.access);
-        Cookies.set("refresh", data.refresh);
-        // alert(Object.values(data)[0]);
+        // code here //
+        if (data.error) {
+          alert("Error Password or Username"); /*displays error message*/
+        } else {
+          window.open(
+            "target.html"
+          ); /*opens the target page while Id & password matches*/
+        }
       })
       .catch((err) => {
         console.log(err);
       });
-  };
+  });
 
   return (
     <div>
-      <form onSubmit={handleSubmit(signinHandler)} className="loginForm">
+      <div className="loginForm">
         <div className="loginFormFirstContainer">
           <img
             className="img-fluid"
@@ -98,18 +107,8 @@ const LoginPage = () => {
             <div className="break"></div>
           </div>
           <div className="loginInput">
-            <input
-              className="signin-email"
-              type="text"
-              placeholder="Email"
-              {...register("email", { required: true })}
-            />
-            <input
-              className="signin-password"
-              type="password"
-              placeholder="Password"
-              {...register("password", { required: true })}
-            />
+            <input id="signin-email" type="text" placeholder="Email" />
+            <input type="text" placeholder="Password" />
           </div>
           <div className="rememberForgot">
             <div>
@@ -126,16 +125,14 @@ const LoginPage = () => {
               </div>
             </div>
             <Link
-              to="/forgot-password "
+              to="forgot-password "
               className="text-decoration-underline ms-2 forgotPassword"
             >
               Forgot Password
             </Link>
           </div>
           <div className="loginBtnSecondary">
-            <button type="submit" className="signin-btn-submit">
-              Log in
-            </button>
+            <button>Log in</button>
           </div>
           <div className="signUpFree">
             <Link to="client-signup">Don’t have an account?</Link>
@@ -144,7 +141,7 @@ const LoginPage = () => {
             </Link>
           </div>
         </div>
-      </form>
+      </div>
     </div>
   );
 };

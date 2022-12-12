@@ -1,10 +1,63 @@
-import React from "react";
-import { FloatingLabel } from "react-bootstrap";
-import Form from "react-bootstrap/Form";
+import React, { useEffect } from "react"
+import { FloatingLabel } from "react-bootstrap"
+import Form from "react-bootstrap/Form"
+import { useDispatch, useSelector } from "react-redux"
+import { axiosInstance } from "../../helpers/axios/axios"
+import { getJobCategories } from "../../helpers/requests/job_requests"
+import {
+  POPULATE_JOB_POSTING_FORM,
+  UPDATE_EMIRATES_NAMES,
+} from "../../store/actions/jobActions"
 
-import "./JobDetailsForm.css";
+import "./JobDetailsForm.css"
 
 const JobDetailsForm = () => {
+  const dispatch = useDispatch()
+  const {
+    jobPostingFormData,
+    jobPostingFormErrors,
+    jobCategories,
+    emiratesNames,
+  } = useSelector((state) => state.jobsReducer)
+
+  const handleChange = (e) => {
+    const jobFormData = jobPostingFormData
+    const name = e.target.name
+    const value = e.target.value
+    const data = { ...jobFormData, [name]: value }
+    dispatch({
+      type: POPULATE_JOB_POSTING_FORM,
+      payload: data,
+    })
+  }
+
+  const getEmiratesNames = async () => {
+    try {
+      const response = await axiosInstance.get("jobs/emirates-names/")
+      dispatch({
+        type: UPDATE_EMIRATES_NAMES,
+        payload: response.data.results,
+      })
+    } catch (error) {
+      return console.log(error)
+    }
+  }
+
+  const FetchFormData = () => {
+    Promise.all([getJobCategories(dispatch), getEmiratesNames()]).then(
+      function (results) {
+        // const categoriesData = results[0]
+        // const emiratesData = results[1]
+        // console.log("result 0 data >>>>", results[0])
+        // console.log("result 1 data >>>>", results[1])
+      }
+    )
+  }
+
+  useEffect(() => {
+    FetchFormData()
+  }, [])
+
   return (
     <div>
       <div className="jobDetailsContainer">
@@ -23,30 +76,86 @@ const JobDetailsForm = () => {
                 />
               </svg>
             </h1>
-            <input type="text" className="jobPostHeadlineInput" />
-            <h1 className="mt-4">Example titles</h1>
-            <ul>
-              <li>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Impedit, consectetur!
-              </li>
-              <li>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Impedit, consectetur!
-              </li>
-            </ul>
+            <input
+              type="text"
+              className="jobPostHeadlineInput mb-3"
+              placeholder="Enter job title..."
+              name="name"
+              value={jobPostingFormData.name}
+              onChange={handleChange}
+            />
+            <p className={jobPostingFormErrors.name ? "text-danger" : "d-none"}>
+              {jobPostingFormErrors.name}
+            </p>
             <div className="jobDetailsInputs">
               {/* <input placeholder="Job Name" type="text" required />
               <input placeholder="Job Id" type="text" required /> */}
               <div className="jobDetailsSelector">
-                <Form.Select className="jobCategoryDrop" size="sm" id="uu">
-                  <option value="0">Job Category</option>
-                  <option>Small select 2</option>
-                  <option>Small select 3</option>
+                <Form.Label className="font-weight-bold mb-0">
+                  Job Category
+                </Form.Label>
+                <Form.Select
+                  className="jobCategoryDrop"
+                  size="sm"
+                  id="uu"
+                  name="category"
+                  defaultValue={jobPostingFormData.category}
+                  onChange={handleChange}
+                >
+                  <option defaultValue={0}>Select category</option>
+                  {jobCategories.length === 0 ? (
+                    <option defaultValue={true}>Loading...</option>
+                  ) : (
+                    jobCategories.map((category) => {
+                      return (
+                        <option key={category.id} value={category.id}>
+                          {category.name}
+                        </option>
+                      )
+                    })
+                  )}
                 </Form.Select>
-                {/* <p className={values === "0" ? style.error : style.errorHidden}>Please Select a Category</p> */}
+                <p
+                  className={
+                    jobPostingFormErrors.category ? "text-danger" : "d-none"
+                  }
+                >
+                  {jobPostingFormErrors.category}
+                </p>
               </div>
-              <input placeholder="Emirates Name" type="text" />
+              <div className="ml-5">
+                <Form.Label className="font-weight-bold mb-0">
+                  Emirates Name
+                </Form.Label>
+                <Form.Select
+                  className="jobCategoryDrop"
+                  size="sm"
+                  id="emirates"
+                  name="emirate_name"
+                  defaultValue={jobPostingFormData.emirate_name}
+                  onChange={handleChange}
+                >
+                  <option defaultValue={0}>Select Emirates Name</option>
+                  {emiratesNames.length === 0 ? (
+                    <option defaultValue={true}>Loading...</option>
+                  ) : (
+                    emiratesNames.map((emirate) => {
+                      return (
+                        <option key={emirate.id} value={emirate.id}>
+                          {emirate.name}
+                        </option>
+                      )
+                    })
+                  )}
+                </Form.Select>
+                <p
+                  className={
+                    jobPostingFormErrors.emirate_name ? "text-danger" : "d-none"
+                  }
+                >
+                  {jobPostingFormErrors.emirate_name}
+                </p>
+              </div>
             </div>
             <h1>
               Job Description
@@ -72,13 +181,23 @@ const JobDetailsForm = () => {
                   height: "200px",
                   background: "#F9F9F9",
                 }}
+                name="description"
+                value={jobPostingFormData.description}
+                onChange={handleChange}
               />
             </FloatingLabel>
+            <p
+              className={
+                jobPostingFormErrors.description ? "text-danger" : "d-none"
+              }
+            >
+              {jobPostingFormErrors.description}
+            </p>
           </div>
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default JobDetailsForm;
+export default JobDetailsForm

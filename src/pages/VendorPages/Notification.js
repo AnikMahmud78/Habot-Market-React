@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import React from "react";
 import Avatar from "./img/Initials.png";
 import Dots from "./img/Vector (1).png";
@@ -25,23 +25,6 @@ const NotificationPage = () => {
     setsecond(false);
     setfirst(false);
   };
-
-  useEffect(() => {
-    function fetchData() {
-      fetch(
-        `${process.env.REACT_APP_BACKEND}${process.env.REACT_APP_NOTIFICATIONS}`
-      )
-        .then((response) => response.json())
-        .then((data) => {
-          console.log(data);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    }
-    fetchData();
-  }, []);
-
   return (
     <>
       <div className="notification-card">
