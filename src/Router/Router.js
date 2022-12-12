@@ -1,31 +1,37 @@
-import { createBrowserRouter } from "react-router-dom"
-import Dashboard from "../pages/ClientPages/Dashboard/Dashboard"
-import PostJob from "../pages/ClientPages/PostJob/PostJob"
-import JobPostSuccess from "../pages/ClientPages/JobPostSuccess/JobPostSuccess"
-import JobReview from "../pages/ClientPages/JobReviewPage/JobReview"
-import LandingPage from "../pages/ClientPages/landing-page/LandingPage"
-import LoginPage from "../pages/ClientPages/Login/LoginPage"
-import Signup from "../pages/ClientPages/Signup/Signup"
-import DataPrivacy from "../pages/DataPrivacy/DataPrivacy"
-import TermsCondition from "../pages/Terms&Conditions/TermsCondition"
-import Signin from "../pages/VendorPages/Signin"
-import VendorSignup from "../pages/VendorPages/Signup"
-import JobListing from "../pages/VendorPages/JobListing"
-import Proposal from "../pages/VendorPages/Proposal"
-import ProfileDashboard from "../components/Dashboard/ProfileDashboard"
-import JobPage from "../components/Dashboard/JobPage"
-import JobPageMain from "../components/Dashboard/JobPageMain"
-import JobPageDone from "../components/Dashboard/JobPageDone"
-import Message from "../components/Dashboard/Message"
-import MiddleContent from "../pages/VendorPages/Middle-main"
-import NotificationPage from "../pages/VendorPages/Notification"
+import { createBrowserRouter } from "react-router-dom";
+import Dashboard from "../pages/ClientPages/Dashboard/Dashboard";
+import PostJob from "../pages/ClientPages/PostJob/PostJob";
+import JobPostSuccess from "../pages/ClientPages/JobPostSuccess/JobPostSuccess";
+import JobReview from "../pages/ClientPages/JobReviewPage/JobReview";
+import LandingPage from "../pages/ClientPages/landing-page/LandingPage";
+import LoginPage from "../pages/ClientPages/Login/LoginPage";
+import Signup from "../pages/ClientPages/Signup/Signup";
+import DataPrivacy from "../pages/DataPrivacy/DataPrivacy";
+import TermsCondition from "../pages/Terms&Conditions/TermsCondition";
+import Signin from "../pages/VendorPages/Signin";
+import VendorSignup from "../pages/VendorPages/Signup";
+import JobListing from "../pages/VendorPages/JobListing";
+import Proposal from "../pages/VendorPages/Proposal";
+import ProfileDashboard from "../components/Dashboard/ProfileDashboard";
+import JobPage from "../components/Dashboard/JobPage";
+import JobPageMain from "../components/Dashboard/JobPageMain";
+import JobPageDone from "../components/Dashboard/JobPageDone";
+import Message from "../components/Dashboard/Message";
+import MiddleContent from "../pages/VendorPages/Middle-main";
+import NotificationPage from "../pages/VendorPages/Notification";
+import PublicRoute from "./PublicRoute";
+import PrivateRoute from "./PrivateRoute";
+import ProtectedRoute from "./ProtectedRoute";
+import ForgotPassword from "../pages/ClientPages/ForgotPassword/ForgotPassword";
+import ResetPassword from "../pages/ClientPages/ResetPassword/ResetPassword";
+import OTPPage from "../pages/ClientPages/OTPVarification/OTPPage";
 
 export const routes = {
   postJob: "/post-job/",
   reviewJob: "/job-review/",
   jobPostSuccess: "/job-post-success/",
   jobListing: "/job-listing/",
-}
+};
 
 export const router = createBrowserRouter([
   {
@@ -83,7 +89,13 @@ export const router = createBrowserRouter([
   },
   {
     path: routes.jobListing,
-    element: <JobListing />,
+    element: (
+      <PrivateRoute>
+        <ProtectedRoute is_client={true}>
+          <JobListing />
+        </ProtectedRoute>
+      </PrivateRoute>
+    ),
   },
   {
     path: "/proposal",

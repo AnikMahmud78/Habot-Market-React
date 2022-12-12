@@ -9,6 +9,7 @@ import axios from "axios";
 const ProfileDashboard = () => {
   const [clientProfile, setClientProfile] = useState();
   const [jobDetails, setJobDetails] = useState();
+  const [jobData, setJobData] = useState();
   useEffect(() => {
     axios.get("https://habot.io/accounts/client-profile/").then(
       (response) => {
@@ -33,7 +34,11 @@ const ProfileDashboard = () => {
   }, []);
 
   console.log(jobDetails);
-  // console.log(jobDetails);
+  // console.log(
+  //   jobDetails?.results.map((results) => {
+  //     console.log(results);
+  //   })
+  // );
   // const { full_name, phone_number, profile_photo, country, address } =
   //   clientProfile;
 
@@ -45,53 +50,28 @@ const ProfileDashboard = () => {
       <div className="job-profile-container px-md-5 py-5 px-2">
         <div className="job-section me-md-4">
           <p className="fs-4 fw-semibold pb-4">Posted Jobs</p>
-          <Card>
-            <div className="px-6 pt-3 d-flex justify-content-between">
-              <p className="mb-3">
-                {jobDetails?.results[0]?.category_info.name}
-              </p>
-              <small className="post-time">Posted 1 hours ago</small>
-            </div>
-            <hr className="m-0" />
-            <div className="px-4 pt-2">
-              <p className="fs-4 fw-semibold m-0">
-                {jobDetails?.results[0]?.name}
-              </p>
-              <p className="w-75 m-0">{jobDetails?.results[0]?.description}</p>
-            </div>
-            <hr />
-            <div className="px-4 d-flex justify-content-between">
-              {jobDetails?.results[2]?.is_complete ? (
-                <p className="completed">Completed</p>
-              ) : (
-                <p className="inprogress">In Progress</p>
-              )}
-              <button className="View-job-button">View Job</button>
-            </div>
-          </Card>
-
-          <Card className="mt-5">
-            <div className="px-4 pt-3 d-flex justify-content-between">
-              <p> {jobDetails?.results[1]?.category_info.name}</p>
-              <small className="post-time">Posted 1 hours ago</small>
-            </div>
-            <hr className="m-0" />
-            <div className="px-4 pt-2">
-              <p className="fs-4 fw-semibold m-0">
-                {jobDetails?.results[1]?.name}
-              </p>
-              <p className="w-75 m-0">{jobDetails?.results[1]?.description}</p>
-            </div>
-            <hr />
-            <div className="px-4 d-flex justify-content-between">
-              {jobDetails?.results[1]?.is_complete ? (
-                <p className="completed">Completed</p>
-              ) : (
-                <p className="inprogress">In Progress</p>
-              )}
-              <button className="View-job-button">View Job</button>
-            </div>
-          </Card>
+          {jobDetails?.results.map((results) => (
+            <Card className="mt-4">
+              <div className="px-6 pt-3 d-flex justify-content-between">
+                <p className="mb-3">{results.category_info.name}</p>
+                <small className="post-time">Posted 1 hours ago</small>
+              </div>
+              <hr className="m-0" />
+              <div className="px-4 pt-2">
+                <p className="fs-4 fw-semibold m-0">{results.name}</p>
+                <p className="w-75 m-0">{results.description}</p>
+              </div>
+              <hr />
+              <div className="px-4 d-flex justify-content-between">
+                {results.is_complete === true ? (
+                  <p className="completed">Completed</p>
+                ) : (
+                  <p className="inprogress">In Progress</p>
+                )}
+                <button className="View-job-button">View Job</button>
+              </div>
+            </Card>
+          ))}
         </div>
 
         {/* -----------------------profile//
@@ -132,7 +112,7 @@ const ProfileDashboard = () => {
                 <div className="transaction-card">
                   <i class="fa-solid fa-circle-check check-ico"></i>
                   <div className="">
-                    <span className="job-title">Job Title</span> <br />
+                    <span className="job-title-client">Job Title</span> <br />
                     <small className="time-text">3:00 AM 12/12/2022</small>
                   </div>
                   <p className="history-aed">42 AED</p>
@@ -142,7 +122,7 @@ const ProfileDashboard = () => {
                 <div className="transaction-card">
                   <i class="fa-solid fa-circle-check check-ico"></i>
                   <div className="">
-                    <span className="job-title">Job Title</span> <br />
+                    <span className="job-title-client">Job Title</span> <br />
                     <small className="time-text">3:00 AM 12/12/2022</small>
                   </div>
                   <p className="history-aed">42 AED</p>
@@ -152,7 +132,7 @@ const ProfileDashboard = () => {
                 <div className="transaction-card">
                   <i class="fa-solid fa-circle-check check-ico"></i>
                   <div className="">
-                    <span className="job-title">Job Title</span> <br />
+                    <span className="job-title-client">Job Title</span> <br />
                     <small className="time-text">3:00 AM 12/12/2022</small>
                   </div>
                   <p className="history-aed">42 AED</p>
@@ -162,7 +142,7 @@ const ProfileDashboard = () => {
                 <div className="transaction-card">
                   <i class="fa-solid fa-circle-check check-ico"></i>
                   <div className="">
-                    <span className="job-title">Job Title</span> <br />
+                    <span className="job-title-client">Job Title</span> <br />
                     <small className="time-text">3:00 AM 12/12/2022</small>
                   </div>
                   <p className="history-aed">42 AED</p>

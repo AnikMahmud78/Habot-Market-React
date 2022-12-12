@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import React from "react";
 import Avatar from "./img/Initials.png";
 import Dots from "./img/Vector (1).png";
@@ -44,14 +44,16 @@ const NotificationPage = () => {
     fetchData();
   }, []);
 
-  useEffect(()=>{
-    axios.get('https://habot.io/jobs/notifications/')
-    .then(response => {
-      setNotifications(response.data)
-    }, error => {
-      console.log(error);
-    });
-  },[])
+  useEffect(() => {
+    axios.get("https://habot.io/jobs/notifications/").then(
+      (response) => {
+        setNotifications(response.data);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }, []);
   console.log(notifications);
 
   return (

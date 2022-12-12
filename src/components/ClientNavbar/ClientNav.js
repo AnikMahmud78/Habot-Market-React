@@ -12,7 +12,7 @@ const ClientNav = () => {
   console.log(currentRoute);
   return (
     <div>
-      <Navbar sticky="top" className="customNav" expand="lg" id="clientNav">
+      <Navbar className="customNav " expand="lg" id="clientNav">
         <div className="landingLogo ">
           {/* <h4>HABOT</h4> */}
           <Link to="/">

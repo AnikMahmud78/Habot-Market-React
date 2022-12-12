@@ -23,13 +23,9 @@ const LoginPage = () => {
     fetch(`${process.env.REACT_APP_BACKEND}${process.env.REACT_APP_LOGIN}`, {
       method: "POST",
       headers: {
-        Accept: "application/json, text/plain, /",
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        email: form.email.value,
-        password: form.password.value,
-      }),
+      body: JSON.stringify({ email: data.email, password: data.password }),
     })
       .then((response) => response.json())
       .then((data) => {

@@ -1,166 +1,166 @@
-import React, { useState, useEffect, useCallback } from "react"
-import Banner from "../../components/page/Banner"
-import GlobalLayout from "../../components/Layout/GlobalLayout"
-import TextCheckbox from "../../components/page/TextCheckbox"
-import JobPost from "../../components/page/JobPost"
-import { axiosInstance } from "../../helpers/axios/axios"
-import { Button } from "react-bootstrap"
-import { useDispatch, useSelector } from "react-redux"
-import { getJobCategories } from "../../helpers/requests/job_requests"
+import React, { useState, useEffect, useCallback } from "react";
+import Banner from "../../components/page/Banner";
+import GlobalLayout from "../../components/Layout/GlobalLayout";
+import TextCheckbox from "../../components/page/TextCheckbox";
+import JobPost from "../../components/page/JobPost";
+import { axiosInstance } from "../../helpers/axios/axios";
+import { Button } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { getJobCategories } from "../../helpers/requests/job_requests";
 import {
   useNavigate,
   useSearchParams,
   createSearchParams,
-} from "react-router-dom"
-import { routes } from "../../Router/Router"
+} from "react-router-dom";
+import { routes } from "../../Router/Router";
 
 export default function JobListing() {
-  const [jobList, setJobList] = useState([])
-  const [loading, setLoading] = useState(true)
-  const [categoryFilter, setCategoryFilter] = useState([])
-  const [searchInput, setSearchInput] = useState("")
-  const [jobCount, setJobCount] = useState(0)
-  const [paginationLoading, setPaginationLoading] = useState(false)
-  const [pagination, setPagination] = useState({ next: null })
-  const { jobCategories } = useSelector((state) => state.jobsReducer)
-  const [searchParams, setSearchParams] = useSearchParams()
-  const dispatch = useDispatch()
-  const navigate = useNavigate()
+  const [jobList, setJobList] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [categoryFilter, setCategoryFilter] = useState([]);
+  const [searchInput, setSearchInput] = useState("");
+  const [jobCount, setJobCount] = useState(0);
+  const [paginationLoading, setPaginationLoading] = useState(false);
+  const [pagination, setPagination] = useState({ next: null });
+  const { jobCategories } = useSelector((state) => state.jobsReducer);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const getJobList = useCallback(
     // Function to fetch data from the backend
     async (url, isPagination) => {
       if (isPagination) {
-        setPaginationLoading(true)
+        setPaginationLoading(true);
       } else {
-        setLoading(true)
+        setLoading(true);
       }
       try {
-        const response = await axiosInstance.get(url)
-        const fetchedData = response.data
+        const response = await axiosInstance.get(url);
+        const fetchedData = response.data;
         const paginationResponse = {
           ...pagination,
           next: fetchedData.next,
-        }
-        let jobListData
+        };
+        let jobListData;
         if (isPagination) {
-          jobListData = jobList.concat(fetchedData.results)
+          jobListData = jobList.concat(fetchedData.results);
         } else {
-          jobListData = fetchedData.results
+          jobListData = fetchedData.results;
         }
 
-        setJobCount(fetchedData.count)
-        setJobList(jobListData)
-        setPagination(paginationResponse)
-        setLoading(false)
-        setPaginationLoading(false)
+        setJobCount(fetchedData.count);
+        setJobList(jobListData);
+        setPagination(paginationResponse);
+        setLoading(false);
+        setPaginationLoading(false);
       } catch (error) {
-        setLoading(false)
-        return console.log(error)
+        setLoading(false);
+        return console.log(error);
       }
     },
     [jobList, pagination]
-  )
+  );
 
   const handleFetchMore = useCallback(() => {
     // handles the fetching of paginated data
     if (pagination.next) {
-      getJobList(pagination.next, true)
+      getJobList(pagination.next, true);
     }
-  }, [pagination, jobList])
+  }, [pagination, jobList]);
 
   const getFilterUrl = useCallback(
     // get common url to submit to the server
     (search, categories) => {
-      const filterUrl = `jobs/posted-jobs-list/?search=${search}&categories=${categories}`
-      return filterUrl
+      const filterUrl = `jobs/posted-jobs-list/?search=${search}&categories=${categories}`;
+      return filterUrl;
     },
     [searchInput, categoryFilter]
-  )
+  );
 
   const handleCategorySelectInput = useCallback(
     // handles the updating the select checkboxes state to checked or not checked
     (e) => {
-      const categorySelected = e.target.value
-      let categoryFiltersCopy = [...categoryFilter]
+      const categorySelected = e.target.value;
+      let categoryFiltersCopy = [...categoryFilter];
       if (categoryFilter.includes(categorySelected)) {
         // if our filter contains the category, we remove it as it means
         // the checkbox is unchecked
         categoryFiltersCopy = categoryFiltersCopy.filter(
           (category) => category !== categorySelected
-        )
-        setCategoryFilter(categoryFiltersCopy)
+        );
+        setCategoryFilter(categoryFiltersCopy);
       } else {
-        categoryFiltersCopy.push(categorySelected)
-        setCategoryFilter(categoryFiltersCopy)
+        categoryFiltersCopy.push(categorySelected);
+        setCategoryFilter(categoryFiltersCopy);
       }
     },
     [categoryFilter]
-  )
+  );
 
   const handleSearchInput = useCallback((e) => {
     // handle the updation of search state value to the one being typed
-    setSearchInput(e.target.value)
-  }, [])
+    setSearchInput(e.target.value);
+  }, []);
 
   const createUrlFilterParams = useCallback(() => {
     // Function to append search parameters to the url
     // when search input or filter is submitted
-    const categories = categoryFilter.toString()
+    const categories = categoryFilter.toString();
     const options = {
       pathname: routes.jobListing,
       search: `?${createSearchParams({
         search: searchInput,
         categories: categories,
       })}`,
-    }
-    navigate(options, { replace: true })
-  }, [searchInput, categoryFilter])
+    };
+    navigate(options, { replace: true });
+  }, [searchInput, categoryFilter]);
 
   const handleCategoryFilterSubmit = useCallback(() => {
     // handles the submit of categories filter check boxes
     // to the server
-    const filterValues = categoryFilter.toString()
-    const filterUrl = getFilterUrl(searchInput, filterValues)
-    createUrlFilterParams()
-    getJobList(filterUrl, false)
-  }, [categoryFilter, searchInput])
+    const filterValues = categoryFilter.toString();
+    const filterUrl = getFilterUrl(searchInput, filterValues);
+    createUrlFilterParams();
+    getJobList(filterUrl, false);
+  }, [categoryFilter, searchInput]);
 
   const handleSearchSubmit = useCallback(
     (e) => {
       // handle the submit of search input value to server
-      e.preventDefault()
-      const categories = categoryFilter.toString()
-      const filterUrl = getFilterUrl(searchInput, categories)
-      createUrlFilterParams()
-      getJobList(filterUrl, false)
+      e.preventDefault();
+      const categories = categoryFilter.toString();
+      const filterUrl = getFilterUrl(searchInput, categories);
+      createUrlFilterParams();
+      getJobList(filterUrl, false);
     },
     [searchInput, categoryFilter]
-  )
+  );
 
   useEffect(() => {
-    const searchParam = searchParams.get("search")
-    const categoriesParam = searchParams.get("categories")
+    const searchParam = searchParams.get("search");
+    const categoriesParam = searchParams.get("categories");
 
     if (searchParam) {
-      setSearchInput(searchParam)
+      setSearchInput(searchParam);
     }
 
     // const cleanParamsList = []
     if (categoriesParam) {
-      const categoriesParamList = categoriesParam.split(",")
-      setCategoryFilter(categoriesParamList)
+      const categoriesParamList = categoriesParam.split(",");
+      setCategoryFilter(categoriesParamList);
     }
 
     const url = getFilterUrl(
       searchParam ? searchParam : "",
       categoriesParam ? categoriesParam : ""
-    )
-    getJobList(url, false)
+    );
+    getJobList(url, false);
     if (jobCategories.length === 0) {
-      getJobCategories(dispatch)
+      getJobCategories(dispatch);
     }
-  }, [])
+  }, []);
 
   return (
     <GlobalLayout
@@ -246,7 +246,7 @@ export default function JobListing() {
                 created,
                 category_info,
                 emirate_name_info,
-              } = jobPost
+              } = jobPost;
 
               return (
                 <JobPost
@@ -264,7 +264,7 @@ export default function JobListing() {
                   }
                   description={description}
                 />
-              )
+              );
             })
           ) : (
             <p className="text-center p-5">No jobs found</p>
@@ -282,5 +282,5 @@ export default function JobListing() {
         </div>
       </div>
     </GlobalLayout>
-  )
+  );
 }

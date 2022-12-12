@@ -1,47 +1,47 @@
-import React, { useEffect } from "react"
-import { FloatingLabel } from "react-bootstrap"
-import Form from "react-bootstrap/Form"
-import { useDispatch, useSelector } from "react-redux"
-import { axiosInstance } from "../../helpers/axios/axios"
-import { getJobCategories } from "../../helpers/requests/job_requests"
+import React, { useEffect } from "react";
+import { FloatingLabel } from "react-bootstrap";
+import Form from "react-bootstrap/Form";
+import { useDispatch, useSelector } from "react-redux";
+import { axiosInstance } from "../../helpers/axios/axios";
+import { getJobCategories } from "../../helpers/requests/job_requests";
 import {
   POPULATE_JOB_POSTING_FORM,
   UPDATE_EMIRATES_NAMES,
-} from "../../store/actions/jobActions"
+} from "../../store/actions/jobActions";
 
-import "./JobDetailsForm.css"
+import "./JobDetailsForm.css";
 
 const JobDetailsForm = () => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const {
     jobPostingFormData,
     jobPostingFormErrors,
     jobCategories,
     emiratesNames,
-  } = useSelector((state) => state.jobsReducer)
+  } = useSelector((state) => state.jobsReducer);
 
   const handleChange = (e) => {
-    const jobFormData = jobPostingFormData
-    const name = e.target.name
-    const value = e.target.value
-    const data = { ...jobFormData, [name]: value }
+    const jobFormData = jobPostingFormData;
+    const name = e.target.name;
+    const value = e.target.value;
+    const data = { ...jobFormData, [name]: value };
     dispatch({
       type: POPULATE_JOB_POSTING_FORM,
       payload: data,
-    })
-  }
+    });
+  };
 
   const getEmiratesNames = async () => {
     try {
-      const response = await axiosInstance.get("jobs/emirates-names/")
+      const response = await axiosInstance.get("jobs/emirates-names/");
       dispatch({
         type: UPDATE_EMIRATES_NAMES,
         payload: response.data.results,
-      })
+      });
     } catch (error) {
-      return console.log(error)
+      return console.log(error);
     }
-  }
+  };
 
   const FetchFormData = () => {
     Promise.all([getJobCategories(dispatch), getEmiratesNames()]).then(
@@ -51,12 +51,12 @@ const JobDetailsForm = () => {
         // console.log("result 0 data >>>>", results[0])
         // console.log("result 1 data >>>>", results[1])
       }
-    )
-  }
+    );
+  };
 
   useEffect(() => {
-    FetchFormData()
-  }, [])
+    FetchFormData();
+  }, []);
 
   return (
     <div>
@@ -111,7 +111,7 @@ const JobDetailsForm = () => {
                         <option key={category.id} value={category.id}>
                           {category.name}
                         </option>
-                      )
+                      );
                     })
                   )}
                 </Form.Select>
@@ -144,7 +144,7 @@ const JobDetailsForm = () => {
                         <option key={emirate.id} value={emirate.id}>
                           {emirate.name}
                         </option>
-                      )
+                      );
                     })
                   )}
                 </Form.Select>
@@ -197,7 +197,7 @@ const JobDetailsForm = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default JobDetailsForm
+export default JobDetailsForm;

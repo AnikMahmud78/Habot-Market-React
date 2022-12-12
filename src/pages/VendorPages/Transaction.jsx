@@ -14,7 +14,7 @@ const Transaction = () => {
       }
     );
   }, []);
-  // console.log(vendorTransaction);
+  console.log(vendorTransaction);
   return (
     <>
       <div className="transaction-area">

@@ -1,13 +1,12 @@
-import axios from "axios"
+import axios from "axios";
 import Cookies from "js-cookie";
 
-
 const baseURL = process.env.REACT_APP_BACKEND;
-
+const token = Cookies.get("access");
 // const clientToken =
-//   "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjcwNjE4NDY1LCJqdGkiOiJiZTI0Mzc2OGU5YzM0NmU4OGU4NzdkMDE5OGQzN2JkNyIsInVzZXJfaWQiOjR9.td-b-Qujgs49J_KVsSUkW0N4EDv7x71VMNkjF-SJk14"
+//   "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjcwNjE4NDY1LCJqdGkiOiJiZTI0Mzc2OGU5YzM0NmU4OGU4NzdkMDE5OGQzN2JkNyIsInVzZXJfaWQiOjR9.td-b-Qujgs49J_KVsSUkW0N4EDv7x71VMNkjF-SJk14";
 // // const vendorToken = ""
-// const token = clientToken
+// const token = clientToken;
 
 export const axiosInstance = axios.create({
   baseURL: baseURL,
@@ -16,9 +15,7 @@ export const axiosInstance = axios.create({
     "Content-Type": "application/json",
     Authorization: "Bearer " + token,
   },
-})
-
-
+});
 
 axios.interceptors.response.use(
   (res) => {
