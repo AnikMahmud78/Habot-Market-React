@@ -18,7 +18,7 @@ export default function ProposalForm() {
       }
     );
   }, []);
-  // console.log(jobList?.results[0]?.id);
+  console.log(jobList?.results);
 
   const jobId = jobList?.results[0]?.id;
 
