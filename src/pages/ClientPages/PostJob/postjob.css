@@ -1,0 +1,110 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter&family=Lexend+Deca&family=Manrope&family=Markazi+Text&family=Mulish&family=Noto+Sans&display=swap");
+
+.jobDetailsHeader h1 {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 45px;
+  line-height: 72px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  color: #2e2b2b;
+}
+
+.jobDetailsHeader h2 {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 21px;
+  line-height: 72px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  color: #8b8b8b;
+}
+
+/* .progress span {
+  background-color: #4CB71A !important;
+  color: white !important;
+  width: 25px;
+  height: 25px;
+  font-size: 15px;
+} */
+
+/* .stepProgress:has(div) a {
+  background-color: #4CB71A !important;
+  border: none !important;
+} */
+
+/* .stepProgress:has(div) a {
+  background-color: #4CB71A !important;
+  border: none !important;
+  color: white !important;
+  text-decoration: none !important;
+  margin-left: 80px;
+  margin-right: 80px;
+  width: 150px;
+  height: 40px;
+  line-height: 15px;
+  text-align: center;
+  border-radius: 20px;
+} */
+.proceedBtn {
+  text-align: center;
+  color: white;
+  font-weight: 500;
+  font-size: 20px;
+  width: 280px;
+  height: 52px;
+  border: none;
+  border-radius: 25px;
+  background: #4cb71a;
+  margin-top: 20px;
+}
+
+@media (max-width: 1024px) {
+  .jobDetailsHeader h1 {
+    font-size: 40px;
+    line-height: 50px;
+  }
+
+  .jobDetailsHeader h2 {
+    font-size: 20px;
+    line-height: 50px;
+  }
+}
+
+@media (max-width: 768px) {
+  .jobDetailsHeader h1 {
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 40px;
+  }
+
+  .jobDetailsHeader h2 {
+    font-size: 15px;
+    line-height: 30px;
+  }
+}
+
+@media (max-width: 600px) {
+  .jobDetailsHeader h1 {
+    font-size: 20px;
+    line-height: 20px;
+  }
+
+  .jobDetailsHeader h2 {
+    font-size: 11px;
+    line-height: 20px;
+  }
+
+  .progress:has(div) {
+    font-size: 10px !important;
+  }
+
+  .stepProgress:has(div) a {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}

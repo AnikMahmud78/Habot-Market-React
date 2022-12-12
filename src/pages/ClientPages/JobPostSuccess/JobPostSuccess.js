@@ -1,5 +1,5 @@
-import React from "react";
-import "./JobPostSuccess.css";
+import React from "react"
+import "./JobPostSuccess.css"
 
 const JobPostSuccess = () => {
   return (
@@ -11,14 +11,14 @@ const JobPostSuccess = () => {
         />
         <h1>Job posted successfully</h1>
         <img src="https://i.ibb.co/mbp2KcN/Group-7073.png" alt="" />
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut{" "}
+        <p className="mt-4">
+          Your job has been posted successfully. You will receive offers from
+          vendors who are qualified to offer you their service and you will get
+          to choose which one of them to work with!{" "}
         </p>
-        <button>View Post</button>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default JobPostSuccess;
+export default JobPostSuccess

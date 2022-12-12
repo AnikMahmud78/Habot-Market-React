@@ -144,9 +144,9 @@
   margin-top: 15px;
 }
 .form-check-input:focus {
-  border-color: #eeeff0 !important;
-  outline: 0 !important;
-  box-shadow: 0 0 0 0 rgb(13 110 253 / 25%) !important;
+  border-color: #eeeff0;
+  outline: 0;
+  box-shadow: 0 0 0 0 rgb(13 110 253 / 25%);
 }
 .loginBtnSecondary button {
   width: 430px;

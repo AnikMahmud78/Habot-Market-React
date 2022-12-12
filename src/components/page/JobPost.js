@@ -1,10 +1,11 @@
-import React from "react";
-import ApplyButton from "../Global/ApplyButton";
+import React from "react"
+import moment from "moment"
+import ApplyButton from "../Global/ApplyButton"
 
 export default function JobPost({
   id,
   category,
-  name,
+  emiratesName,
   description,
   headline,
   timePosted,
@@ -17,14 +18,14 @@ export default function JobPost({
           {headline}
         </div>
         <span className="block text-[#9E9E9E] text-base font-semibold px-4 lg:px-0 pt-3 lg:pt-0">
-          Posted {timePosted} ago
+          Posted {moment(timePosted).fromNow()}
         </span>
       </div>
       {/* job settings */}
       <div className="block lg:flex px-4 lg:px-9 justify-between items-center mt-[33px]">
         <div className="flex">
           <span className="text-[#2F2F2F] text-base font-bold">Job Id :</span>
-          <span className="pl-[10px] text-black opacity-50">{id}</span>
+          <span className="pl-[10px] text-black opacity-50">#{id}</span>
         </div>
         <div className="flex">
           <span className="text-[#2F2F2F] text-base font-bold">
@@ -36,7 +37,9 @@ export default function JobPost({
           <span className="text-[#2F2F2F] text-base font-bold">
             Emerirate name :
           </span>
-          <span className="pl-[10px] text-black opacity-50">{name}</span>
+          <span className="pl-[10px] text-black opacity-50">
+            {emiratesName}
+          </span>
         </div>
       </div>
       {/* description */}
@@ -52,5 +55,5 @@ export default function JobPost({
         <ApplyButton />
       </div>
     </div>
-  );
+  )
 }

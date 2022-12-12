@@ -1,10 +1,11 @@
-import React from "react";
-import { Col, Row } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import Footer from "../../../components/Footer/Footer";
-import LandingNav from "../../../components/LandingNav/LandingNav";
+import React from "react"
+import { Col, Row } from "react-bootstrap"
+import { Link } from "react-router-dom"
+import Footer from "../../../components/Footer/Footer"
+import LandingNav from "../../../components/LandingNav/LandingNav"
+import { routes } from "../../../Router/Router"
 
-import "./landingPage.css";
+import "./landingPage.css"
 
 const LandingPage = () => {
   return (
@@ -20,7 +21,7 @@ const LandingPage = () => {
                 your needs.
               </h1>
               <div className=" mt-2 searchContainer ">
-                <Link to="/job-details">
+                <Link to={routes.postJob}>
                   <button className="postJobBtn">Post a job</button>
                   <h2 className=" text-white my-2 text-center ">or</h2>
                 </Link>
@@ -529,7 +530,7 @@ const LandingPage = () => {
       {/* Footer  */}
       <Footer />
     </div>
-  );
-};
+  )
+}
 
-export default LandingPage;
+export default LandingPage
