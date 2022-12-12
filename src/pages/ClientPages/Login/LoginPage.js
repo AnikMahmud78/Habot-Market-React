@@ -4,11 +4,13 @@ import Cookies from "js-cookie";
 import { Link, useNavigate } from "react-router-dom";
 import "./LoginPage.css";
 import { ToastContainer, toast } from "react-toastify";
+import axios from "axios";
 // import { signInWithPopup } from "firebase/auth";
 // import { signInWithSocial } from "../../../firebase/firbase";
 
 const LoginPage = () => {
   const [token, setToken] = useState();
+  const [socialLogin, setSocialLogin] = useState();
 
   const Navigate = useNavigate();
   const {
@@ -98,7 +100,18 @@ const LoginPage = () => {
   //       });
   //   }
   // }
-
+  const socialLoginHandler = () => {
+    axios
+      .get(
+        `https://habot.io/accounts/o/google-oauth2/?redirect_uri=${process.env.REACT_APP_BACKEND}`
+      )
+      .then(
+        (res) => console.log(res.data),
+        (error) => {
+          console.log(error);
+        }
+      );
+  };
   return (
     <div>
       <ToastContainer></ToastContainer>
@@ -120,7 +133,7 @@ const LoginPage = () => {
           <h1>Welcome to Habot !</h1>
           <p>Welcome back! Please enter your details.</p>
           <button
-            // onClick={}
+            onClick={socialLoginHandler}
             className="d-flex mx-auto loginFormSecondContainerBtn"
           >
             <svg

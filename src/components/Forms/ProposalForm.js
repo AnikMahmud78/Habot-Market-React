@@ -20,8 +20,6 @@ export default function ProposalForm() {
   }, []);
   console.log(jobList?.results);
 
-  const jobId = jobList?.results[0]?.id;
-
   const {
     register,
     handleSubmit,
@@ -35,15 +33,15 @@ export default function ProposalForm() {
       files: files,
     };
     console.log(obj);
-    axios.post(`https://habot.io/jobs/apply-job/${jobId}`, obj).then(
-      (response) => {
-        setVendorProposal(response.data);
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
-    reset();
+    // axios.post(`https://habot.io/jobs/apply-job/${}`, obj).then(
+    //   (response) => {
+    //     setVendorProposal(response.data);
+    //   },
+    //   (error) => {
+    //     console.log(error);
+    //   }
+    // );
+    // reset();
   };
 
   console.log(vendorProposal);

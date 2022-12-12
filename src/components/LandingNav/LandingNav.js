@@ -38,7 +38,7 @@ const LandingNav = () => {
     toast.success("Log out Successful");
   };
   const loggedUser = JSON.parse(localStorage.getItem("user"));
-  console.log(loggedUser?.is_vendor);
+  // console.log(loggedUser?.is_vendor);
 
   return (
     <div>
