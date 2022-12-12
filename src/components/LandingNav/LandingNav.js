@@ -1,28 +1,48 @@
 import axios from "axios";
 import Cookies from "js-cookie";
 import React from "react";
-import { Container, Form, Nav, Navbar } from "react-bootstrap";
+import { useEffect } from "react";
+import { useState } from "react";
+import { Container, Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import "./LandingNav.css";
 
 const LandingNav = () => {
+  const [user, setUser] = useState(null);
+  useEffect(() => {
+    setUser(JSON.parse(localStorage.getItem("user")));
+  }, [user]);
   const handleLogout = () => {
     const token = Cookies.get("refresh");
 
     const obj = {
       refresh_token: token,
     };
-    console.log(obj);
-    axios
-      .post("https://habot.io/accounts/logout", obj)
-      .then((response) => console.log(response.data))
-      .catch((err) => console.log(err));
+    // console.log(obj);
+    // axios
+    //   .post("https://habot.io/accounts/logout", obj)
+    //   .then((response) => {
+    //     console.log(response.data);
+    //      localStorage.removeItem("user");
+    // Cookies.remove("refresh");
+    // Cookies.remove("access");
+    //   })
+
+    //   .catch((err) => console.log(err));
+    localStorage.removeItem("user");
+    Cookies.remove("refresh");
+    Cookies.remove("access");
+    toast.success("Log out Successful");
   };
   const loggedUser = JSON.parse(localStorage.getItem("user"));
   console.log(loggedUser?.is_vendor);
+
   return (
     <div>
+      <ToastContainer></ToastContainer>
       <Navbar expand="lg" className="customNavLanding" id="clientNav">
         <Container fluid>
           <div className="landingLogo ">
@@ -46,7 +66,7 @@ const LandingNav = () => {
               {/* <Link to="" className="navLink">
                 How it works ?
               </Link> */}
-              {localStorage.getItem("user") && (
+              {user && (
                 <Link
                   to={
                     loggedUser?.is_vendor
@@ -81,7 +101,7 @@ const LandingNav = () => {
                 Download App
               </Link>
             </div>
-            {localStorage.getItem("user") ? (
+            {user ? (
               <button onClick={handleLogout} className="loginBtn">
                 Log out
               </button>

@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import Cookies from "js-cookie";
 import { Link, useNavigate } from "react-router-dom";
 import "./LoginPage.css";
+import { ToastContainer, toast } from "react-toastify";
 // import { signInWithPopup } from "firebase/auth";
 // import { signInWithSocial } from "../../../firebase/firbase";
 
@@ -50,6 +51,7 @@ const LoginPage = () => {
       .catch((err) => {
         console.log(err);
       });
+    toast.success("Log in Successful");
   };
   console.log(token);
 
@@ -99,6 +101,7 @@ const LoginPage = () => {
 
   return (
     <div>
+      <ToastContainer></ToastContainer>
       <div className="loginForm">
         <div className="loginFormFirstContainer">
           <img

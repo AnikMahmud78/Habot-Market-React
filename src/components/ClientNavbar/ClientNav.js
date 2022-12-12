@@ -120,9 +120,9 @@ const ClientNav = () => {
                 ></Dropdown.Toggle>
 
                 <Dropdown.Menu className="dropdownMenu">
-                  <Dropdown.Item to="#/action-1">Action</Dropdown.Item>
+                  <Dropdown.Item to="#/action-1"></Dropdown.Item>
                   <Dropdown.Item to="#/action-2">Another action</Dropdown.Item>
-                  <Dropdown.Item to="#/action-3">Something else</Dropdown.Item>
+                  <Dropdown.Item to="#/action-3">Log out</Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
             </div>
@@ -254,9 +254,7 @@ const ClientNav = () => {
                     <Dropdown.Item to="#/action-2">
                       Another action
                     </Dropdown.Item>
-                    <Dropdown.Item to="#/action-3">
-                      Something else
-                    </Dropdown.Item>
+                    <Dropdown.Item to="#/action-3">Log out</Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>
               </div>
