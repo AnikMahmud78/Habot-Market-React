@@ -46,11 +46,19 @@ export const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <Dashboard />,
+    element: (
+      <PrivateRoute>
+        <Dashboard />
+      </PrivateRoute>
+    ),
   },
   {
     path: "/client-login",
-    element: <LoginPage />,
+    element: (
+      <PublicRoute>
+        <LoginPage />
+      </PublicRoute>
+    ),
   },
   {
     path: "/client-login/client-signup",
@@ -79,11 +87,23 @@ export const router = createBrowserRouter([
   },
   {
     path: "/proposal",
-    element: <Proposal />,
+    element: (
+      <PrivateRoute>
+        <ProtectedRoute is_client={false}>
+          <Proposal />
+        </ProtectedRoute>
+      </PrivateRoute>
+    ),
   },
   {
     path: "/profile-dashboard",
-    element: <ProfileDashboard />,
+    element: (
+      <PrivateRoute>
+        <ProtectedRoute is_client={true}>
+          <ProfileDashboard />
+        </ProtectedRoute>
+      </PrivateRoute>
+    ),
   },
   {
     path: "/jobPage",
@@ -103,10 +123,28 @@ export const router = createBrowserRouter([
   },
   {
     path: "/vendor-profile-dashboard",
-    element: <MiddleContent />,
+    element: (
+      <PrivateRoute>
+        <ProtectedRoute is_client={false}>
+          <MiddleContent />
+        </ProtectedRoute>
+      </PrivateRoute>
+    ),
   },
   {
     path: "/notification",
     element: <NotificationPage />,
   },
-])
+  {
+    path: "/forgot-password",
+    element: <ForgotPassword />,
+  },
+  {
+    path: "/reset-password",
+    element: <ResetPassword />,
+  },
+  {
+    path: "/otp-page/:email",
+    element: <OTPPage />,
+  },
+]);

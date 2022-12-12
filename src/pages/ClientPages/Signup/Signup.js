@@ -3,6 +3,47 @@ import { Link } from "react-router-dom";
 import "./Signup.css";
 
 const Signup = () => {
+  const navigate = useNavigate("");
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({});
+
+  const signupHandler = (data) => {
+    fetch(`https://habot.io/accounts/sign-up/`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        full_name: data.full_name,
+        email: data.email,
+        phone_number: data.phone_number,
+        password: data.password,
+        password2: data.password,
+        is_client: true,
+        is_vendor: false,
+      }),
+    })
+      .then((response) => {
+        console.log(response.json());
+
+        if (response.ok) {
+          alert("Success");
+          navigate(`/otp-page/${data.email}`);
+        }
+      })
+      // .then((data) => {
+      //   console.log(data);
+      //   alert(Object.values(data)[0]);
+      // })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   return (
     <div>
       <div>

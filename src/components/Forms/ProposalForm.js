@@ -1,20 +1,50 @@
-import React, { useState } from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import PayButton from "../Global/PayButton";
 
 export default function ProposalForm() {
+  const [vendorProposal, setVendorProposal] = useState();
+  const [jobList, setJobList] = useState();
   const [files, setFiles] = useState([]);
+
+  useEffect(() => {
+    axios.get(`https://habot.io/jobs/posted-jobs-list/`).then(
+      (response) => {
+        setJobList(response.data);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }, []);
+  console.log(jobList?.results);
 
   const {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm();
 
   const formSubmitHandler = (data) => {
-    console.log(data);
+    const obj = {
+      ...data,
+      files: files,
+    };
+    console.log(obj);
+    // axios.post(`https://habot.io/jobs/apply-job/${}`, obj).then(
+    //   (response) => {
+    //     setVendorProposal(response.data);
+    //   },
+    //   (error) => {
+    //     console.log(error);
+    //   }
+    // );
+    // reset();
   };
 
+  console.log(vendorProposal);
   const handleClick = (event) => {
     document.getElementById("document").click();
   };
@@ -80,7 +110,7 @@ export default function ProposalForm() {
           className="block mt-3 w-full outline-none border border-[#B1B0B0] rounded-[5px] py-2 lg:py-5 px-4 lg:px-8 placeholder:text-sm placeholder:text-[#8E8E8E]"
           placeholder="Describe your proposal here"
           rows={5}
-          {...register("proposal", { required: true })}
+          {...register("request_message", { required: true })}
         />
         {errors.proposal && (
           <span className="text-xs leading-5 text-[#E91010]">

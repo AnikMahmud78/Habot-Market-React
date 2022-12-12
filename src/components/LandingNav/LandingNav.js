@@ -1,17 +1,53 @@
+import axios from "axios";
+import Cookies from "js-cookie";
 import React from "react";
-import { Container, Form, Nav, Navbar } from "react-bootstrap";
+import { useEffect } from "react";
+import { useState } from "react";
+import { Container, Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import "./LandingNav.css";
 
 const LandingNav = () => {
+  const [user, setUser] = useState(null);
+  useEffect(() => {
+    setUser(JSON.parse(localStorage.getItem("user")));
+  }, [user]);
+  const handleLogout = () => {
+    const token = Cookies.get("refresh");
+
+    const obj = {
+      refresh_token: token,
+    };
+    // console.log(obj);
+    // axios
+    //   .post("https://habot.io/accounts/logout", obj)
+    //   .then((response) => {
+    //     console.log(response.data);
+    //      localStorage.removeItem("user");
+    // Cookies.remove("refresh");
+    // Cookies.remove("access");
+    //   })
+
+    //   .catch((err) => console.log(err));
+    localStorage.removeItem("user");
+    Cookies.remove("refresh");
+    Cookies.remove("access");
+    toast.success("Log out Successful");
+  };
+  const loggedUser = JSON.parse(localStorage.getItem("user"));
+  // console.log(loggedUser?.is_vendor);
+
   return (
     <div>
+      <ToastContainer></ToastContainer>
       <Navbar expand="lg" className="customNavLanding" id="clientNav">
         <Container fluid>
           <div className="landingLogo ">
             {/* <h4>HABOT</h4> */}
-            <Link>
+            <Link to="/">
               <img
                 className=""
                 src="https://i.ibb.co/3NBR2Qy/logo-transparent-white-2.png"
@@ -26,13 +62,22 @@ const LandingNav = () => {
               style={{ maxHeight: "150px" }}
               navbarScroll
             ></Nav>
-            <Form className="navFlexLanding">
+            <div className="navFlexLanding">
               {/* <Link to="" className="navLink">
                 How it works ?
               </Link> */}
-              {/* <Link to="#becamePartner" className="navLink">
-                Become a partner
-              </Link> */}
+              {user && (
+                <Link
+                  to={
+                    loggedUser?.is_vendor
+                      ? "./vendor-profile-dashboard"
+                      : "./profile-dashboard"
+                  }
+                  className="navLink"
+                >
+                  Dashboard
+                </Link>
+              )}
               <a className="navLink" href="#becamePartner">
                 Become a partner
               </a>
@@ -55,10 +100,16 @@ const LandingNav = () => {
                 </svg>
                 Download App
               </Link>
+            </div>
+            {user ? (
+              <button onClick={handleLogout} className="loginBtn">
+                Log out
+              </button>
+            ) : (
               <Link to="/client-login">
-                <button className="loginBtn">Login / Sign up</button>
+                <button className="loginBtn">Log in / Sign up</button>
               </Link>
-            </Form>
+            )}
           </Navbar.Collapse>
         </Container>
       </Navbar>

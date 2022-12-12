@@ -22,7 +22,9 @@ const ForgotPassword = () => {
       .then((response) => response.json())
       .then((data) => {
         alert(Object.values(data)[0]);
+        console.log(data);
       })
+
       .catch((err) => {
         console.log(err);
       });

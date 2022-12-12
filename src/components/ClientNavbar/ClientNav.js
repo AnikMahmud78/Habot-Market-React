@@ -15,7 +15,7 @@ const ClientNav = () => {
       <Navbar sticky="top" className="customNav" expand="lg" id="clientNav">
         <div className="landingLogo ">
           {/* <h4>HABOT</h4> */}
-          <Link>
+          <Link to="/">
             <img
               className=""
               src="https://i.ibb.co/3NBR2Qy/logo-transparent-white-2.png"
@@ -26,7 +26,7 @@ const ClientNav = () => {
         <Container fluid className="navFlex">
           <Form className=" align-items-center justify-center navDisplay">
             <div>
-              <svg
+              {/* <svg
                 width="33"
                 height="35"
                 viewBox="0 0 33 35"
@@ -37,7 +37,7 @@ const ClientNav = () => {
                   d="M32.75 11.0833V25.3333C32.75 27.075 31.2875 28.5 29.5 28.5H6.75L0.25 34.8333V6.33333C0.25 4.59167 1.7125 3.16667 3.5 3.16667H19.9125C19.75 3.64167 19.75 4.275 19.75 4.75C19.75 5.225 19.75 5.85833 19.9125 6.33333H3.5V25.3333H29.5V12.5083C30.6375 12.35 31.775 11.7167 32.75 11.0833ZM23 4.75C23 7.44167 25.1125 9.5 27.875 9.5C30.6375 9.5 32.75 7.44167 32.75 4.75C32.75 2.05833 30.6375 0 27.875 0C25.1125 0 23 2.05833 23 4.75Z"
                   fill="white"
                 />
-              </svg>
+              </svg> */}
             </div>
             <div className="icon">
               <Dropdown>
@@ -120,9 +120,9 @@ const ClientNav = () => {
                 ></Dropdown.Toggle>
 
                 <Dropdown.Menu className="dropdownMenu">
-                  <Dropdown.Item to="#/action-1">Action</Dropdown.Item>
+                  <Dropdown.Item to="#/action-1"></Dropdown.Item>
                   <Dropdown.Item to="#/action-2">Another action</Dropdown.Item>
-                  <Dropdown.Item to="#/action-3">Something else</Dropdown.Item>
+                  <Dropdown.Item to="#/action-3">Log out</Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
             </div>
@@ -139,14 +139,14 @@ const ClientNav = () => {
               {/* <Link to="/" >
                   <a className={home === "/" ? style.active : style.nonActive}>Dashboard</a>
                 </Link> */}
-              <Link
+              {/* <Link
                 to="/job-post"
                 className={
                   currentRoute === "/job-post" ? "active" : "nonActive"
                 }
               >
                 Job Post
-              </Link>
+              </Link> */}
               {/* <Link to="/payment-history">
                   <a className={currentRoute === "/payment-history" ? style.active : style.nonActive}>Payment History</a>
                 </Link>
@@ -156,7 +156,7 @@ const ClientNav = () => {
             </Nav>
             <Form className="d-flex align-items-center justify-center navHidden">
               <div>
-                <svg
+                {/* <svg
                   width="27"
                   height="35"
                   viewBox="0 0 33 35"
@@ -167,7 +167,7 @@ const ClientNav = () => {
                     d="M32.75 11.0833V25.3333C32.75 27.075 31.2875 28.5 29.5 28.5H6.75L0.25 34.8333V6.33333C0.25 4.59167 1.7125 3.16667 3.5 3.16667H19.9125C19.75 3.64167 19.75 4.275 19.75 4.75C19.75 5.225 19.75 5.85833 19.9125 6.33333H3.5V25.3333H29.5V12.5083C30.6375 12.35 31.775 11.7167 32.75 11.0833ZM23 4.75C23 7.44167 25.1125 9.5 27.875 9.5C30.6375 9.5 32.75 7.44167 32.75 4.75C32.75 2.05833 30.6375 0 27.875 0C25.1125 0 23 2.05833 23 4.75Z"
                     fill="#ffff"
                   />
-                </svg>
+                </svg> */}
               </div>
               <div className="icon">
                 <Dropdown>
@@ -254,9 +254,7 @@ const ClientNav = () => {
                     <Dropdown.Item to="#/action-2">
                       Another action
                     </Dropdown.Item>
-                    <Dropdown.Item to="#/action-3">
-                      Something else
-                    </Dropdown.Item>
+                    <Dropdown.Item to="#/action-3">Log out</Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>
               </div>

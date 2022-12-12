@@ -1,18 +1,26 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { useForm } from "react-hook-form";
+import Cookies from "js-cookie";
+import { Link, useNavigate } from "react-router-dom";
 import "./LoginPage.css";
+import { ToastContainer, toast } from "react-toastify";
+import axios from "axios";
+// import { signInWithPopup } from "firebase/auth";
+// import { signInWithSocial } from "../../../firebase/firbase";
 
 const LoginPage = () => {
-  const form = {
-    email: document.querySelector("#signin-email"),
-    password: document.querySelector("#signin-password"),
-    submit: document.querySelector("#signin-btn-submit"),
-    messages: document.getElementById("form-messages"),
-  };
-  let button = form.submit.addEventListener("click", (e) => {
-    e.preventDefault();
-    const login = "https://ffcc-app.herokuapp.com/user/login";
-    fetch(login, {
+  const [token, setToken] = useState();
+  const [socialLogin, setSocialLogin] = useState();
+
+  const Navigate = useNavigate();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({});
+
+  const signinHandler = (data) => {
+    fetch(`${process.env.REACT_APP_BACKEND}${process.env.REACT_APP_LOGIN}`, {
       method: "POST",
       headers: {
         Accept: "application/json, text/plain, /",
@@ -25,23 +33,92 @@ const LoginPage = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
-        // code here //
-        if (data.error) {
-          alert("Error Password or Username"); /*displays error message*/
-        } else {
-          window.open(
-            "target.html"
-          ); /*opens the target page while Id & password matches*/
+        setToken(data);
+
+        const user = {
+          is_vendor: data.is_vendor,
+          is_client: data.is_client,
+        };
+        console.log(user);
+        localStorage.setItem("user", JSON.stringify(user));
+
+        Cookies.set("access", data.access);
+        Cookies.set("refresh", data.refresh);
+
+        if (data.is_vendor) {
+          // console.log("abc");
+          Navigate("/vendor-profile-dashboard");
+        }
+        if (data.is_client) {
+          Navigate("/profile-dashboard");
         }
       })
+
       .catch((err) => {
         console.log(err);
       });
-  });
+    toast.success("Log in Successful");
+  };
+  console.log(token);
 
+  // const googlePopUpHandler ={
+  //   async () => {
+  //     const user = await signInWithSocial();
+
+  //     console.log(user);
+  //     fetch(
+  //       `${process.env.REACT_APP_BACKEND}${process.env.REACT_APP_LOGIN}`,
+  //       {
+  //         method: "POST",
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //         },
+  //         body: JSON.stringify({ email: user.email }),
+  //       }
+  //     )
+  //       .then((response) => response.json())
+  //       .then((data) => {
+  //         setToken(data);
+
+  //         const user = {
+  //           ...data.is_vendor,
+  //           ...data.is_client,
+  //         };
+
+  //         localStorage.setItem("user", user);
+
+  //         Cookies.set("access", data.access);
+  //         Cookies.set("refresh", data.refresh);
+
+  //         if (data.is_vendor) {
+  //           // console.log("abc");
+  //           Navigate("/vendor-profile-dashboard");
+  //         }
+  //         if (data.is_client) {
+  //           Navigate("/profile-dashboard");
+  //         }
+  //       })
+
+  //       .catch((err) => {
+  //         console.log(err);
+  //       });
+  //   }
+  // }
+  const socialLoginHandler = () => {
+    axios
+      .get(
+        `https://habot.io/accounts/o/google-oauth2/?redirect_uri=${process.env.REACT_APP_BACKEND}`
+      )
+      .then(
+        (res) => console.log(res.data),
+        (error) => {
+          console.log(error);
+        }
+      );
+  };
   return (
     <div>
+      <ToastContainer></ToastContainer>
       <div className="loginForm">
         <div className="loginFormFirstContainer">
           <img
@@ -59,7 +136,10 @@ const LoginPage = () => {
         <div className="loginFormSecondContainer">
           <h1>Welcome to Habot !</h1>
           <p>Welcome back! Please enter your details.</p>
-          <button className="d-flex mx-auto loginFormSecondContainerBtn">
+          <button
+            onClick={socialLoginHandler}
+            className="d-flex mx-auto loginFormSecondContainerBtn"
+          >
             <svg
               className="me-2"
               width="25"
@@ -99,47 +179,64 @@ const LoginPage = () => {
             </svg>
             Log in with Google
           </button>
-          <div className="d-flex align-items-center justify-content-center mt-4">
-            <div className="break"></div>
-            <div>
-              <h3 className=" mx-2 breakText">or</h3>
-            </div>
-            <div className="break"></div>
-          </div>
-          <div className="loginInput">
-            <input id="signin-email" type="text" placeholder="Email" />
-            <input type="text" placeholder="Password" />
-          </div>
-          <div className="rememberForgot">
-            <div>
-              <div className="form-check">
-                <input
-                  className="form-check-input"
-                  type="checkbox"
-                  value=""
-                  id="flexCheckDefault"
-                />
-                <label className="form-check-label" for="flexCheckDefault">
-                  Remember for 30 days
-                </label>
+          <form onSubmit={handleSubmit(signinHandler)}>
+            <div className="d-flex align-items-center justify-content-center mt-4">
+              <div className="break"></div>
+              <div>
+                <h3 className=" mx-2 breakText">or</h3>
               </div>
+              <div className="break"></div>
             </div>
-            <Link
-              to="forgot-password "
-              className="text-decoration-underline ms-2 forgotPassword"
-            >
-              Forgot Password
-            </Link>
-          </div>
-          <div className="loginBtnSecondary">
-            <button>Log in</button>
-          </div>
-          <div className="signUpFree">
-            <Link to="client-signup">Don’t have an account?</Link>
-            <Link to="client-signup" className="text-decoration-underline ms-2">
-              Sign up for free
-            </Link>
-          </div>
+            <div className="loginInput">
+              <input
+                className="signin-email"
+                type="text"
+                placeholder="Email"
+                {...register("email", { required: true })}
+              />
+              <input
+                className="signin-password"
+                type="password"
+                placeholder="Password"
+                {...register("password", { required: true })}
+              />
+            </div>
+            <div className="rememberForgot">
+              <div>
+                <div className="form-check">
+                  <input
+                    className="form-check-input"
+                    type="checkbox"
+                    value=""
+                    id="flexCheckDefault"
+                  />
+                  <label className="form-check-label" for="flexCheckDefault">
+                    Remember for 30 days
+                  </label>
+                </div>
+              </div>
+              <Link
+                to="/forgot-password "
+                className="text-decoration-underline ms-2 forgotPassword"
+              >
+                Forgot Password
+              </Link>
+            </div>
+            <div className="loginBtnSecondary">
+              <button type="submit" className="signin-btn-submit">
+                Log in
+              </button>
+            </div>
+            <div className="signUpFree">
+              <Link to="client-signup">Don’t have an account?</Link>
+              <Link
+                to="client-signup"
+                className="text-decoration-underline ms-2"
+              >
+                Sign up for free
+              </Link>
+            </div>
+          </form>
         </div>
       </div>
     </div>

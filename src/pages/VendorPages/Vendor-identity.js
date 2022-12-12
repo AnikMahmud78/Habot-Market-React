@@ -1,6 +1,8 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import React from "react";
 const VendorContainer = (props) => {
+  // console.log(props?.vendorProfile);
+  const vendorDetails = props?.vendorProfile;
   return (
     <>
       <div className="vendor_card">
@@ -9,12 +11,11 @@ const VendorContainer = (props) => {
         </div>
         <div className="vendor-img"></div>
         <div className="vendor-info">
-          <div className="vendor_name">Vendor Name</div>
-          <div className="vendor_desc">
-            <p>
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-              accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-            </p>
+          <div className="vendor_name">{vendorDetails?.full_name}</div>
+          <div className="vendor_desc ">
+            <p>{vendorDetails?.about}</p>
+            <p>{vendorDetails?.address}</p>
+            <p>{vendorDetails?.company_name}</p>
           </div>
           <div className="apply-btns">
             <button className="Btn">
@@ -34,7 +35,9 @@ const VendorContainer = (props) => {
                 <span>Messages</span>
               </NavLink>
             </button>
-            <button className="Btn active">Apply Jobs</button>
+            <Link to="/">
+              <button className="Btn active">Apply Jobs</button>
+            </Link>
           </div>
         </div>
         <div className="links">

@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import { Dropdown } from "react-bootstrap";
 import "./ClientDashboard.css";
 
@@ -76,6 +77,27 @@ const transaction = [
   },
 ];
 const Dashboard = () => {
+  const [dashboard, setDashboaard] = useState();
+  useEffect(() => {
+    axios.get("https://habot.io/jobs/client-dashboard/").then(
+      (response) => {
+        setDashboaard(response.data);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }, []);
+  console.log(dashboard);
+
+  // const {
+  //   // jobs,
+  //   // payment_history,
+  //   // total_amount_spent,
+  //   // total_contracted_vendors,
+  //   total_jobs_posted,
+  // } = dashboard;
+
   return (
     <div>
       <div className="dashboardContainer">
@@ -90,7 +112,7 @@ const Dashboard = () => {
                 <div className="statusCard">
                   <div className="statusCardContainer">
                     <div className="statusCardText">
-                      <h1>{status.number}</h1>
+                      <h1>{dashboard?.total_jobs_posted}</h1>
                       <p>{status.tittle}</p>
                     </div>
                     <div className="statusCardImg">
