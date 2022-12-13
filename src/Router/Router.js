@@ -40,7 +40,13 @@ export const router = createBrowserRouter([
   },
   {
     path: routes.postJob,
-    element: <PostJob />,
+    element: (
+      <PrivateRoute>
+        <ProtectedRoute is_client={true}>
+          <PostJob />
+        </ProtectedRoute>
+      </PrivateRoute>
+    ),
   },
   {
     path: routes.reviewJob,

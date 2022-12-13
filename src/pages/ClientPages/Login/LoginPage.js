@@ -5,12 +5,9 @@ import { Link, useNavigate } from "react-router-dom";
 import "./LoginPage.css";
 import { ToastContainer, toast } from "react-toastify";
 import axios from "axios";
-// import { signInWithPopup } from "firebase/auth";
-// import { signInWithSocial } from "../../../firebase/firbase";
 
 const LoginPage = () => {
   const [token, setToken] = useState();
-  const [socialLogin, setSocialLogin] = useState();
 
   const Navigate = useNavigate();
   const {

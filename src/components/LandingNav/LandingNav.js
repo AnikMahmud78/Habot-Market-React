@@ -12,15 +12,17 @@ import "./LandingNav.css";
 
 const LandingNav = () => {
   const [user, setUser] = useState(null);
+
   useEffect(() => {
     setUser(JSON.parse(localStorage.getItem("user")));
   }, [user]);
+
   const handleLogout = () => {
     const token = Cookies.get("refresh");
 
-    const obj = {
-      refresh_token: token,
-    };
+    // const obj = {
+    //   refresh_token: token,
+    // };
     // console.log(obj);
     // axios
     //   .post("https://habot.io/accounts/logout", obj)
@@ -32,6 +34,7 @@ const LandingNav = () => {
     //   })
 
     //   .catch((err) => console.log(err));
+
     localStorage.removeItem("user");
     Cookies.remove("refresh");
     Cookies.remove("access");

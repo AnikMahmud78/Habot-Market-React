@@ -16,31 +16,27 @@ const JobHeadline = () => {
     );
   }, []);
 
-  // console.log(vendorProfile?.results[0]);
+  console.log(vendorProfile);
   return (
     <>
-      <div className="job-info-container">
-        <div className="job-info-header">
-          <div className="job-tile">
-            {vendorProfile?.results[0].category_info.name}
+      {vendorProfile?.results.map((result) => (
+        <div className="job-info-container">
+          <div className="job-info-header">
+            <div className="job-tile">{result.category_info.name}</div>
+            <div className="mute-text">{result.created_by_info.full_name}</div>
           </div>
-          <div className="mute-text">
-            {vendorProfile?.results[0].created_by_info.full_name}
+          <div className="job-info">
+            <div className="info-title">{result.name}</div>
+            <div className="job-desc">{result.description}</div>
+          </div>
+          <div className="document-file">
+            <span className="document-icon">
+              <img src={File} alt="document" />
+            </span>
+            <label className="doc-text">Supporting Document</label>
           </div>
         </div>
-        <div className="job-info">
-          <div className="info-title">{vendorProfile?.results[0].name}</div>
-          <div className="job-desc">
-            {vendorProfile?.results[0].description}
-          </div>
-        </div>
-        <div className="document-file">
-          <span className="document-icon">
-            <img src={File} alt="document" />
-          </span>
-          <label className="doc-text">Supporting Document</label>
-        </div>
-      </div>
+      ))}
     </>
   );
 };
