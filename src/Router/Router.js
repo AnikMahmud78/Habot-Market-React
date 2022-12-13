@@ -97,14 +97,14 @@ export const router = createBrowserRouter([
     path: routes.jobListing,
     element: (
       <PrivateRoute>
-        <ProtectedRoute is_client={true}>
+        <ProtectedRoute is_client={false}>
           <JobListing />
         </ProtectedRoute>
       </PrivateRoute>
     ),
   },
   {
-    path: "/proposal",
+    path: "/proposal/:id",
     element: (
       <PrivateRoute>
         <ProtectedRoute is_client={false}>

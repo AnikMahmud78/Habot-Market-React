@@ -1,24 +1,14 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useParams } from "react-router-dom";
 import PayButton from "../Global/PayButton";
 
 export default function ProposalForm() {
+  const { id } = useParams();
+  console.log(id);
   const [vendorProposal, setVendorProposal] = useState();
-  const [jobList, setJobList] = useState();
   const [files, setFiles] = useState([]);
-
-  useEffect(() => {
-    axios.get(`https://habot.io/jobs/posted-jobs-list/`).then(
-      (response) => {
-        setJobList(response.data);
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
-  }, []);
-  console.log(jobList?.results);
 
   const {
     register,
@@ -27,24 +17,48 @@ export default function ProposalForm() {
     reset,
   } = useForm();
 
-  const formSubmitHandler = (data) => {
-    const obj = {
-      ...data,
-      files: files,
-    };
-    console.log(obj);
-    // axios.post(`https://habot.io/jobs/apply-job/${}`, obj).then(
-    //   (response) => {
-    //     setVendorProposal(response.data);
+  const formSubmitHandler = () => {
+    // const obj = {
+    //   ...data,
+    //   files: files,
+    // };
+    // console.log(obj);
+    axios
+      .post(`https://habot.io/jobs/apply-job/${id}`, {
+        subject: "subject",
+        request_message: "request_message",
+      })
+      .then(
+        (response) => {
+          setVendorProposal(response.data);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+
+    // fetch(`https://habot.io/jobs/apply-job/${id}`, {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
     //   },
-    //   (error) => {
-    //     console.log(error);
-    //   }
-    // );
-    // reset();
+    //   body: JSON.stringify({
+    //     full_name: data.full_name,
+    //     email: data.email,
+    //     phone_number: data.phone_number,
+    //     password: data.password,
+    //     password2: data.password,
+    //     is_client: true,
+    //     is_vendor: false,
+    //   }),
+    // })
+    //   .then(res=>)
+
+    reset();
   };
 
   console.log(vendorProposal);
+
   const handleClick = (event) => {
     document.getElementById("document").click();
   };

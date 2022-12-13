@@ -1,6 +1,6 @@
-import React from "react"
-import moment from "moment"
-import ApplyButton from "../Global/ApplyButton"
+import React from "react";
+import moment from "moment";
+import ApplyButton from "../Global/ApplyButton";
 
 export default function JobPost({
   id,
@@ -52,8 +52,8 @@ export default function JobPost({
         </span>
       </div>
       <div className="px-4 lg:px-9 mt-10">
-        <ApplyButton />
+        <ApplyButton id={id} />
       </div>
     </div>
-  )
+  );
 }

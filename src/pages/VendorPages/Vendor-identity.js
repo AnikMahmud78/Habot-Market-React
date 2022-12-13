@@ -35,7 +35,7 @@ const VendorContainer = (props) => {
                 <span>Messages</span>
               </NavLink>
             </button>
-            <Link to="/">
+            <Link to="/job-listing">
               <button className="Btn active">Apply Jobs</button>
             </Link>
           </div>
